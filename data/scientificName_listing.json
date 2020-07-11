@@ -1,0 +1,10 @@
+[
+	{"scientificName" : "Aepyceros melampus johnstoni" , "associatedProjects" : [{"projectId" : "277" , "count" : 5}]},
+	{"scientificName" : "Aepyceros melampus melampus" , "associatedProjects" : [{"projectId" : "277" , "count" : 5}]},
+	{"scientificName" : "Aepyceros melampus suara" , "associatedProjects" : [{"projectId" : "277" , "count" : 10}]},
+	{"scientificName" : "Not Collected" , "associatedProjects" : [{"projectId" : "278" , "count" : 562}]},
+	{"scientificName" : "Odocoileus virginianus" , "associatedProjects" : [{"projectId" : "279" , "count" : 2509},{"projectId" : "282" , "count" : 59}]},
+	{"scientificName" : "Odocoileus virginianus borealis" , "associatedProjects" : [{"projectId" : "279" , "count" : 2}]},
+	{"scientificName" : "Odocoileus virginianus cousei" , "associatedProjects" : [{"projectId" : "279" , "count" : 4}]},
+	{"scientificName" : "Odocoileus virginianus dacotensis" , "associatedProjects" : [{"projectId" : "279" , "count" : 1}]},
+	{"scientificName" : "Odocoileus virginianus truei" , "associatedProjects" : [{"projectId" : "279" , "count" : 4}]}]

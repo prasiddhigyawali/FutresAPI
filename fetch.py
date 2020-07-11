@@ -196,72 +196,23 @@ def json_writer(group,name,filename,definition):
         f.write(jsonstr)
 
     
-def run_grouped_data(df,name):
-    
-    bd = df.diseaseTested.str.contains('Bd')
-    bd = df[bd]  
-    
-    bsal = df.diseaseTested.str.contains('Bsal')
-    bsal = df[bsal]  
-    
-    # groupby, filter on Bd,Bsal,Both for name
-    group = df.groupby(name)[name].size()    
-    json_writer(group,name,'data/'+name+'_Both.json','Bd and Bsal counts grouped by '+name)      
-    
-    group = bd.groupby(name)[name].size()
-    json_writer(group,name,'data/'+name+'_Bd.json','Bd counts grouped by '+name)  
-    
-    group = bsal.groupby(name)[name].size()
-    json_writer(group,name,'data/'+name+'_Bsal.json','Bsal counts grouped by '+name)  
-
-    # groupby, filter on Bd,Bsal,Both for name+diseaseDetected
-    group = df.groupby([name,'diseaseDetected']).size()
-    json_tuple_writer(group,name,'data/'+name+'_diseaseDetected_Both.json','Bd and Bsal counts grouped by presence-abscense and by '+name)
-    
-    group = bd.groupby([name,'diseaseDetected']).size()
-    json_tuple_writer(group,name,'data/'+name+'_diseaseDetected_Bd.json','Bd counts grouped by presence-abscense and by '+name)
-    
-    group = bsal.groupby([name,'diseaseDetected']).size()
-    json_tuple_writer(group,name,'data/'+name+'_diseaseDetected_Bsal.json','Bsal counts grouped by presence-abscense and by '+name)
-    
-    # groupby, filter on Bd,Bsal,Both for name+diseaseTested         
-    group = df.groupby([name,'diseaseTested']).size()
-    json_tuple_writer(group,name,'data/'+name+'_Both_stacked.json','Bd and Bsal counts for a stacked chart, grouped by '+name)
-    
-
-            
 def group_data():  
     print("reading processed data ...")
     df = pd.read_excel(processed_filename)
     
     print("grouping results ...")    
-    # genus, country, yearCollected results
-    run_grouped_data(df,'genus')
-    run_grouped_data(df,'scientificName')
-    run_grouped_data(df,'country')
-    run_grouped_data(df,'yearCollected')
-
-    # summary tables for diseaseDetected and diseaseTested
-    bd = df.diseaseTested.str.contains('Bd')
-    bd = df[bd]  
     
-    bsal = df.diseaseTested.str.contains('Bsal')
-    bsal = df[bsal]  
+    group = df.groupby('scientificName')['scientificName'].size()    
+    json_writer(group,'scientificName','data/scientificName.json','counts grouped by scientificName') 
     
-
-    # diseaseDetected
-    group = df.groupby('diseaseDetected')['diseaseDetected'].size()
-    json_writer(group,'diseaseDetected','data/diseaseDetected_Both.json','Bd and Bsal counts grouped by presence-absence')
+    group = df.groupby('country')['country'].size()    
+    json_writer(group,'country','data/country.json','counts grouped by country') 
     
-    group = bd.groupby('diseaseDetected')['diseaseDetected'].size()
-    json_writer(group,'diseaseDetected','data/diseaseDetected_Bd.json','Bd counts grouped by presence-absence')
+    group = df.groupby('yearCollected')['yearCollected'].size()    
+    json_writer(group,'yearCollected','data/yearCollected.json','counts grouped by yearCollected') 
     
-    group = bsal.groupby('diseaseDetected')['diseaseDetected'].size()
-    json_writer(group,'diseaseDetected','data/diseaseDetected_Bsal.json','Bsal counts grouped by presence-absence')
-        
-    # diseaseTested
-    group = df.groupby('diseaseTested')['diseaseTested'].size()
-    json_writer(group,'diseaseTested','data/diseaseTested_Both.json','Bd and Bsal counts')    
+    group = df.groupby('measurementType')['measurementType'].size()
+    json_writer(group,'measurementType','data/measurementType.json','measuremenType')    
     
     # scientificName by projectId
     group = df.groupby(['projectId','scientificName']).size()
@@ -282,7 +233,7 @@ columns = ['materialSampleID','country','locality','yearCollected','samplingProt
 processed_filename = 'data/futres_data_processed.xlsx'
 processed_csv_filename_zipped = 'data/futres_data_processed.csv.gz'
 
-fetch_data()
-#group_data()
+#fetch_data()
+group_data()
 
 api.close()

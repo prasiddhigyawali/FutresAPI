@@ -1,0 +1,12 @@
+[
+	{"scientificName":"Aepyceros melampus johnstoni","value":5},
+	{"scientificName":"Aepyceros melampus melampus","value":5},
+	{"scientificName":"Aepyceros melampus suara","value":10},
+	{"scientificName":"Not Collected","value":562},
+	{"scientificName":"Odocoileus virginianus","value":2568},
+	{"scientificName":"Odocoileus virginianus borealis","value":2},
+	{"scientificName":"Odocoileus virginianus cousei","value":4},
+	{"scientificName":"Odocoileus virginianus dacotensis","value":1},
+	{"scientificName":"Odocoileus virginianus truei","value":4},
+	{"scientificName":"Unknown","value":13208}
+]
