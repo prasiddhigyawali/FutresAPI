@@ -1,6 +1,6 @@
 # API
 
-Amphibian Disease Portal API Documentation
+Futres API Documentation
 |filename|definition|
 |----|---|
 |data/scientificName.json|counts grouped by scientificName|

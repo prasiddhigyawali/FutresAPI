@@ -19,11 +19,10 @@ class projectCounter:
         self.projectId = projectId
         self.count = count
 
-# fetch data from GEOME that matches the Amphibian Disease TEAM and put into an easily queriable format.
+# fetch data from GEOME that matches the Futres TEAM and put into an easily queriable format.
 def fetch_data():
     print("fetching data...")
-    # populate proejcts array with a complete list of project IDs 
-    # for the amphibianDiseaseTeam
+    # populate proejcts array with a complete list of project IDs for this team
     futresTeamID = 70   
     df = pd.DataFrame(columns = columns)
      
@@ -224,7 +223,7 @@ def group_data():
 
 api = open("api.md","w")
 api.write("# API\n\n")
-api.write("Amphibian Disease Portal API Documentation\n")
+api.write("Futres API Documentation\n")
 api.write("|filename|definition|\n")
 api.write("|----|---|\n")
 
