@@ -2,4 +2,3 @@ data/temp_output.xlsx
 data/futres_data_processed.xlsx
 data/*.xlsx
 .vscode/
-data/futres_data_processed.csv.gz
