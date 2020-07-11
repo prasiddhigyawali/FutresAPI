@@ -4,6 +4,7 @@ import json
 import xlrd
 import pandas as pd
 import urllib.request
+import numpy as np
 
 # hold scientificName objects which 
 class scientificNames:
@@ -27,11 +28,11 @@ def fetch_data():
     df = pd.DataFrame(columns = columns)
      
     # this will fetch a list of ALL projects from GEOME        
-    url="https://api.geome-db.org/projects/stats?"
     # TODO: dynamically fetch access_token
-    access_token = "HGYXwV9AM43BbKgfkMUB"
-    url = "https://api.geome-db.org/projects?includePublic=false&access_token="+access_token
+    access_token = "k-vdVfvh2qDeC8JBekce"    
+    url = "https://api.geome-db.org/projects?includePublic=false&access_token="+access_token    
     r = requests.get(url)
+    print(url)
     for project in json.loads(r.content):
         projectConfigurationID = project["projectConfiguration"]["id"]
         # filter for just projects matching the teamID
@@ -39,10 +40,7 @@ def fetch_data():
         if (projectConfigurationID == futresTeamID):
             
             url="https://api.geome-db.org/records/Event/excel?networkId=1&q=_projects_:" + str(project["projectId"]) + "+_select_:%5BSample,Diagnostics%5D" + "&access_token="+access_token
-            print(url)
             r = requests.get(url)
-
-            print(r.status_code)
             if (r.status_code == 204):
                 print ('no data found for project = ' + str(project["projectId"]))
             else:
@@ -51,12 +49,13 @@ def fetch_data():
                 excel_file_url = json.loads(r.content)['url']   + "?access_token=" + access_token             
                 reqRet = urllib.request.urlretrieve(excel_file_url, temp_file)
                 
-                thisDF = pd.read_excel(temp_file,sheet_name='Samples')                                
+                thisDF = pd.read_excel(temp_file,sheet_name='Samples', na_filter=False)                                
                 thisDF = thisDF.reindex(columns=columns)            
                 thisDF = thisDF.astype(str)
-
                 thisDF['projectURL'] = str("https://geome-db.org/workbench/project-overview?projectId=") + thisDF['projectId'].astype(str)
-                    
+                # TODO: remove this when GEOME data has been sanitized
+                thisDF = thisDF[thisDF.measurementValue != '--']
+   
                 df = df.append(thisDF,sort=False)
      
     print("writing final data...")            
@@ -279,7 +278,7 @@ api.write("|filename|definition|\n")
 api.write("|----|---|\n")
 
 # global variables
-columns = ['materialSampleID','diseaseTested','diseaseDetected','genus','specificEpithet','country','yearCollected','projectId']
+columns = ['materialSampleID','country','locality','yearCollected','samplingProtocol','basisOfRecord','scientificName','measurementMethod','measurementUnit','measurementType','measurementValue','lifeStage','individualID','sex','decimalLatitude','decimalLongitude','projectId']
 processed_filename = 'data/futres_data_processed.xlsx'
 processed_csv_filename_zipped = 'data/futres_data_processed.csv.gz'
 
