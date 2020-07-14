@@ -2,11 +2,12 @@
 import csv
 import datetime
 import json
+import os
+
 
 import elasticsearch.helpers
 from elasticsearch import Elasticsearch, RequestsHttpConnection, serializer, compat, exceptions
 
-from loader.utils import get_files
 
 TYPE = 'record'
 
@@ -52,8 +53,10 @@ class ESLoader(object):
 
         doc_count = 0
         
+        print('searching for files in ' + self.data_dir)
         for file in get_files(self.data_dir):
             try:
+                print(file)
                 doc_count += self.__load_file(file)
             except RuntimeError as e:
                 print(e)
@@ -114,10 +117,10 @@ def get_files(dir, ext='csv'):
 inputDirectory = 'data/'
 index = 'futres'
 drop_existing = True
-alias = 'futres'
+alias = ''
 host =  'tarly.cyverse.org:80'
 
-loader = ESLoader(inputDirectory, index, drop_existing, alias, ahost)
+loader = ESLoader(inputDirectory, index, drop_existing, alias, host)
 loader.load()
 
 
