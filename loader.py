@@ -73,9 +73,8 @@ class ESLoader(object):
             reader = csv.DictReader(f)
 
             for row in reader:
-                #row['plantStructurePresenceTypes'] = row['plantStructurePresenceTypes'].split("|")
-                #row['loaded_ts'] = datetime.datetime.now()
-                #row['location'] = row['latitude'] + "," + row['longitude'] 
+                #TODO: only set location if lat/lng are always set
+                #row['location'] = row['decimalLatitude'] + "," + row['decimalLongitude'] 
                 data.append({k: v for k, v in row.items() if v})  # remove any empty values
 
             elasticsearch.helpers.bulk(client=self.es, index=self.index_name, actions=data, doc_type=TYPE,
@@ -91,10 +90,10 @@ class ESLoader(object):
                 TYPE: {
                     "properties": {
                         "measurementType": {"type": "keyword"},
-                        "year": { "type": "integer" },
-                        "latitude": { "type": "float" },
-                        "longitude": { "type": "float" },                        
-                        "location": { "type": "geo_point" }                        
+                        "yearCollected": { "type": "integer" },
+                        "decimalLatitude": { "type": "float" },
+                        "decimalLongitude": { "type": "float" }
+                        #"location": { "type": "geo_point" }                        
                     }
                 }
             }
@@ -116,8 +115,8 @@ def get_files(dir, ext='csv'):
 
 inputDirectory = 'data/'
 index = 'futres'
-drop_existing = True
-alias = ''
+drop_existing = False
+alias = 'futres'
 host =  'tarly.cyverse.org:80'
 
 loader = ESLoader(inputDirectory, index, drop_existing, alias, host)
