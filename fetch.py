@@ -28,14 +28,14 @@ def fetch_data():
      
     # this will fetch a list of ALL projects from GEOME        
     # TODO: dynamically fetch access_token
-    access_token = "k-vdVfvh2qDeC8JBekce"    
+    access_token = "JUVnbKHy_S7YMYNs_NGN"    
     url = "https://api.geome-db.org/projects?includePublic=false&access_token="+access_token    
     r = requests.get(url)
-    print(url)
+    print("fetching " + url)
+
     for project in json.loads(r.content):
         projectConfigurationID = project["projectConfiguration"]["id"]
         # filter for just projects matching the teamID
-        print (projectConfigurationID)
         if (projectConfigurationID == futresTeamID):
             
             url="https://api.geome-db.org/records/Event/excel?networkId=1&q=_projects_:" + str(project["projectId"]) + "+_select_:%5BSample,Diagnostics%5D" + "&access_token="+access_token
@@ -46,13 +46,13 @@ def fetch_data():
                 print("processing data for project = " + str(project["projectId"]))
                 temp_file = 'data/project' + str(project["projectId"]) + ".xlsx"                                                
                 excel_file_url = json.loads(r.content)['url']   + "?access_token=" + access_token             
-                reqRet = urllib.request.urlretrieve(excel_file_url, temp_file)
-                
+                reqRet = urllib.request.urlretrieve(excel_file_url, temp_file)                
                 thisDF = pd.read_excel(temp_file,sheet_name='Samples', na_filter=False)                                
+                
                 thisDF = thisDF.reindex(columns=columns)            
                 thisDF = thisDF.astype(str)
                 thisDF['projectURL'] = str("https://geome-db.org/workbench/project-overview?projectId=") + thisDF['projectId'].astype(str)
-                # TODO: remove this when GEOME data has been sanitized
+                # Remove bad measurementValues
                 thisDF = thisDF[thisDF.measurementValue != '--']
    
                 df = df.append(thisDF,sort=False)
@@ -232,7 +232,7 @@ columns = ['materialSampleID','country','locality','yearCollected','samplingProt
 processed_filename = 'data/futres_data_processed.xlsx'
 processed_csv_filename_zipped = 'data/futres_data_processed.csv.gz'
 
-#fetch_data()
+fetch_data()
 group_data()
 
 api.close()
