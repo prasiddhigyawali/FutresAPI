@@ -89,8 +89,7 @@ class ESLoader(object):
             "mappings": {
                 TYPE: {
                     "properties": {
-                        "measurementType": {"type": "string"},
-                        "yearCollected": { "type": "integer" },
+                        "measurementType": {"type": "text"},
                         "decimalLatitude": { "type": "float" },
                         "decimalLongitude": { "type": "float" }
                         #"location": { "type": "geo_point" }                        
