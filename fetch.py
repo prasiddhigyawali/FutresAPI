@@ -5,6 +5,8 @@ import xlrd
 import pandas as pd
 import urllib.request
 import numpy as np
+import os
+import re
 
 # hold scientificName objects which 
 class scientificNames:
@@ -19,16 +21,25 @@ class projectCounter:
         self.projectId = projectId
         self.count = count
 
+
+def quicktest():
+    temp_file = "test.xlsx"
+    print ('processing ' + temp_file)
+
+    df = pd.read_excel(temp_file,sheet_name='Samples', na_filter=False)                                                    
+    df = taxonomize(df)
+    print (df)
+    
 # fetch data from GEOME that matches the Futres TEAM and put into an easily queriable format.
-def fetch_data():
+def fetch_geome_data():
     print("fetching data...")
     # populate proejcts array with a complete list of project IDs for this team
     futresTeamID = 70   
-    df = pd.DataFrame(columns = columns)
+    #df = pd.DataFrame(columns = columns)
      
     # this will fetch a list of ALL projects from GEOME        
     # TODO: dynamically fetch access_token
-    access_token = "JUVnbKHy_S7YMYNs_NGN"    
+    access_token = "BRgRWgZqRw57GRNHpyA5"    
     url = "https://api.geome-db.org/projects?includePublic=false&access_token="+access_token    
     r = requests.get(url)
     print("fetching " + url)
@@ -44,26 +55,86 @@ def fetch_data():
                 print ('no data found for project = ' + str(project["projectId"]))
             else:
                 print("processing data for project = " + str(project["projectId"]))
-                temp_file = 'data/project' + str(project["projectId"]) + ".xlsx"                                                
+                temp_file = 'data/project_' + str(project["projectId"]) + ".xlsx"                                                
                 excel_file_url = json.loads(r.content)['url']   + "?access_token=" + access_token             
                 reqRet = urllib.request.urlretrieve(excel_file_url, temp_file)                
-                thisDF = pd.read_excel(temp_file,sheet_name='Samples', na_filter=False)                                
+                                                                  
                 
+def process_data():
+    df = pd.DataFrame(columns = columns)
+
+    # look in data directory for all files called project_*.xlsx
+    print ('processing GEOME data...')    
+    for subdir, dirs, files in os.walk('data'):
+        for file in files:
+            ext = os.path.splitext(file)[-1].lower()        
+            prefix = os.path.splitext(file)[0].split("_")[0]            
+            
+            if ext == ".xlsx" and prefix == "project":
+                temp_file = os.path.join(subdir, file)
+                print ('processing ' + temp_file)
+
+                thisDF = pd.read_excel(temp_file,sheet_name='Samples', na_filter=False)                                                
                 thisDF = thisDF.reindex(columns=columns)            
                 thisDF = thisDF.astype(str)
-                thisDF['projectURL'] = str("https://geome-db.org/workbench/project-overview?projectId=") + thisDF['projectId'].astype(str)
+                #thisDF['projectURL'] = str("https://geome-db.org/workbench/project-overview?projectId=") + thisDF['projectId'].astype(str)
                 # Remove bad measurementValues
-                thisDF = thisDF[thisDF.measurementValue != '--']
-   
+                thisDF = thisDF[thisDF.measurementValue != '--']   
                 df = df.append(thisDF,sort=False)
-     
-    print("writing final data...")            
+    
+    print ('processing Vertnet data...')  
+    for subdir, dirs, files in os.walk('vertnet'):
+        for file in files:
+            ext = os.path.splitext(file)[-1].lower()        
+            prefix = os.path.splitext(file)[0].split("_")[0]            
+            
+            if ext == ".csv" and prefix == "FuTRES":                
+                temp_file = os.path.join(subdir, file)
+                print ('processing ' + temp_file)
+                thisDF = pd.read_csv(temp_file, na_filter=False)                                                
+                thisDF['individualID'] = ''
+                thisDF['projectId'] = 'Vertnet'
+                thisDF = thisDF[columns] 
+                      
+                thisDF = thisDF.reindex(columns=columns)            
+                thisDF = thisDF.astype(str)
+                # Remove bad measurementValues
+                thisDF = thisDF[thisDF.measurementValue != '--']   
+                df = df.append(thisDF,sort=False)  
+    
+    print("writing dataframe to spreadsheet and zipped csv file...")            
     # write to an excel file, used for later processing
     df.to_excel(processed_filename,index=False)    
     # Create a compressed output file so people can view a limited set of columns for the complete dataset
     SamplesDFOutput = df.reindex(columns=columns)
-    SamplesDFOutput.to_csv(processed_csv_filename_zipped, index=False, compression="gzip")                                            
+    SamplesDFOutput.to_csv(processed_csv_filename_zipped, index=False, compression="gzip")                  
 
+def taxonomize(df):
+    print ("cleaning up taxonomy")
+    df['scientificName'] = df['scientificName'].str.replace('cf.','')    
+    df['scientificName'] = df['scientificName'].str.replace('cf','')
+    df['scientificName'] = df['scientificName'].str.replace('sp.','')
+    df['scientificName'] = df['scientificName'].str.replace('sp','')
+    df['scientificName'] = df['scientificName'].str.replace('aff.','')
+    # remove all material between parenthesis and the paranthesis themselves
+    df['scientificName'] = df['scientificName'].str.replace("\((.*?)\)",'')  
+    df['scientificName'] = df['scientificName'].str.strip()
+    df['scientificName'] = df['scientificName'].str.replace('  ',' ')
+    # If so much as see a question mark, call the name Unknown
+    df['scientificName'] = df['scientificName'].apply(lambda x: 'Unknown' if '?' in x else x)
+    # limit to binomial.  do not need trinomials or more
+    df['scientificName'] = df.apply(lambda x: ' '.join(x['scientificName'].split()[:2]), axis=1)
+    df['scientificName'] = df['scientificName'].str.replace(chr(34),'')
+    # if scientificName is completely empty we call it Unknown
+    df['scientificName'] = df['scientificName'].str.replace(r'^\s*$','Unkown')
+    df['genus'] = df['scientificName'].str.split(' ').str[0]
+    df['specificEpithet'] = df['scientificName'].str.split(' ').str[1]
+    df['specificEpithet'] = df['specificEpithet'].fillna('')
+
+    
+
+    return df    
+    
 # function to write tuples to json from pandas group by
 # using two group by statements.
 def json_tuple_writer(group,name,filename,definition):
@@ -194,11 +265,11 @@ def json_writer(group,name,filename,definition):
     with open(filename,'w') as f:
         f.write(jsonstr)
 
-    
-def group_data():  
+def read_processed_data():
     print("reading processed data ...")
-    df = pd.read_excel(processed_filename)
+    return pd.read_excel(processed_filename)
     
+def group_data(df):      
     print("grouping results ...")    
     
     group = df.groupby('scientificName')['scientificName'].size()    
@@ -232,7 +303,12 @@ columns = ['materialSampleID','country','locality','yearCollected','samplingProt
 processed_filename = 'data/futres_data_processed.xlsx'
 processed_csv_filename_zipped = 'data/futres_data_processed.csv.gz'
 
-fetch_data()
-group_data()
+#quicktest()
+
+#fetch_geome_data()
+process_data()
+df = read_processed_data()
+df = taxonomize(df)
+group_data(df)
 
 api.close()

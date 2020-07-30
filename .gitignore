@@ -1,3 +1,5 @@
+data/futres_data_processed.csv.gz
+data/futres_data_processed.csv
 data/temp_output.xlsx
 data/futres_data_processed.xlsx
 data/*.xlsx

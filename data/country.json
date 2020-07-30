@@ -1,10 +1,11 @@
 [
 	{"country":"Botswana","value":3},
-	{"country":"Kenya","value":7},
-	{"country":"Mozambique","value":3},
-	{"country":"South Africa","value":2},
-	{"country":"Tanzania","value":3},
-	{"country":"USA","value":13267},
-	{"country":"Unknown","value":3082},
-	{"country":"Zambia","value":2}
+	{"country":"Kenya","value":21},
+	{"country":"Mozambique","value":11},
+	{"country":"Nepal","value":12},
+	{"country":"South Africa","value":4},
+	{"country":"Tanzania","value":8},
+	{"country":"USA","value":13266},
+	{"country":"Unknown","value":481463},
+	{"country":"Zambia","value":3}
 ]
