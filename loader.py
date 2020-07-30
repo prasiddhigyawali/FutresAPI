@@ -46,9 +46,12 @@ class ESLoader(object):
 
     def load(self):
         if not self.es.indices.exists(self.index_name):
+            print ('creating index ' + self.index_name)
             self.__create_index()
         elif self.drop_existing:
+            print('deleting index ' + self.index_name)
             self.es.indices.delete(index=self.index_name)
+            print ('creating index ' + self.index_name)
             self.__create_index()
 
         doc_count = 0
@@ -98,8 +101,8 @@ class ESLoader(object):
             }
         }
         self.es.indices.create(index=self.index_name, body=request_body)
-        if self.alias:
-            self.es.indices.put_alias(index=self.index_name, name=self.alias)
+        #if self.alias:
+            #self.es.indices.put_alias(index=self.index_name, name=self.alias)
 
 def get_files(dir, ext='csv'):
     for root, dirs, files in os.walk(dir):
@@ -114,7 +117,7 @@ def get_files(dir, ext='csv'):
 
 inputDirectory = 'data/'
 index = 'futres'
-drop_existing = False
+drop_existing = True
 alias = 'futres'
 host =  'tarly.cyverse.org:80'
 
