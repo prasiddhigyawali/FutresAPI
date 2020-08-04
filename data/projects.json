@@ -7,5 +7,5 @@
 	{"projectId" : "278", "projectTitle" : "FuTRES_Spermophilus.beecheyi_Blois_NorthAmerica_Modern", "principalInvestigator" : "Jessica Blois", "principalInvestigatorAffiliation" : "School of Natural Sciences, University of California, Merced", "public" : "False", "discoverable" : "True", "entityStats": {"DiagnosticsCount" : 562}},
 	{"projectId" : "306", "projectTitle" : "new project testing", "principalInvestigator" : "None", "principalInvestigatorAffiliation" : "None", "public" : "False", "discoverable" : "True", "entityStats": {"DiagnosticsCount" : 0}},
 	{"projectId" : "303", "projectTitle" : "Tata PowerPoint", "principalInvestigator" : "None", "principalInvestigatorAffiliation" : "None", "public" : "True", "discoverable" : "False", "entityStats": {"DiagnosticsCount" : 0}},
-	{"projectId" : "0", "projectTitle" : "VertNet", "principalInvestigator" : "", "principalInvestigatorAffiliation" : "", "public" : "True", "discoverable" : "False", "entityStats": {"DiagnosticsCount" : 476182}}
+	{"projectId" : "Vertnet", "projectTitle" : "VertNet", "principalInvestigator" : "", "principalInvestigatorAffiliation" : "", "public" : "True", "discoverable" : "False", "entityStats": {"DiagnosticsCount" : 476182}}
 ]
