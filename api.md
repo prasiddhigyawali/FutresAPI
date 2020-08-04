@@ -3,6 +3,7 @@
 Futres API Documentation
 |filename|definition|
 |----|---|
+|data/projects.json|display project data|
 |data/scientificName.json|counts grouped by scientificName|
 |data/country.json|counts grouped by country|
 |data/yearCollected.json|counts grouped by yearCollected|

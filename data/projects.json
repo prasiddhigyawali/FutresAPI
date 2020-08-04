@@ -1,0 +1,14 @@
+[
+	{"projectId" : "298", "projectTitle" : "cougars", "principalInvestigator" : "None", "principalInvestigatorAffiliation" : "None", "entityStats": {"DiagnosticsCount" : 0}},
+	{"projectId" : "277", "projectTitle" : "FuTRES_Aepyceros_Villaseñor_Africa_Modern", "principalInvestigator" : "Amelia Villaseñor", "principalInvestigatorAffiliation" : "University of Arkansas", "entityStats": {"DiagnosticsCount" : 50}},
+	{"projectId" : "282", "projectTitle" : "FuTRES_EAP_Deer_Emery", "principalInvestigator" : "None", "principalInvestigatorAffiliation" : "None", "entityStats": {"DiagnosticsCount" : 58}},
+	{"projectId" : "314", "projectTitle" : "FuTRES_Equid_Bernor_Global_Cenozoic", "principalInvestigator" : "None", "principalInvestigatorAffiliation" : "None", "entityStats": {"DiagnosticsCount" : 2221}},
+	{"projectId" : "279", "projectTitle" : "FuTRES_Mammals_VertNet_Global_Modern", "principalInvestigator" : "Rob Guralnick", "principalInvestigatorAffiliation" : "University of Florida Natural History Museum", "entityStats": {"DiagnosticsCount" : 2520}},
+	{"projectId" : "294", "projectTitle" : "FuTRES_Puma_concolor_ODFW_OR_USA_Modern", "principalInvestigator" : "", "principalInvestigatorAffiliation" : "None", "entityStats": {"DiagnosticsCount" : 13208}},
+	{"projectId" : "232", "projectTitle" : "FuTRES Sample Project", "principalInvestigator" : "None", "principalInvestigatorAffiliation" : "None", "entityStats": {"DiagnosticsCount" : 0}},
+	{"projectId" : "278", "projectTitle" : "FuTRES_Spermophilus.beecheyi_Blois_NorthAmerica_Modern", "principalInvestigator" : "Jessica Blois", "principalInvestigatorAffiliation" : "School of Natural Sciences, University of California, Merced", "entityStats": {"DiagnosticsCount" : 562}},
+	{"projectId" : "289", "projectTitle" : "mammals test upload", "principalInvestigator" : "None", "principalInvestigatorAffiliation" : "None", "entityStats": {"DiagnosticsCount" : 82270}},
+	{"projectId" : "302", "projectTitle" : "Marine Mammal traits", "principalInvestigator" : "None", "principalInvestigatorAffiliation" : "None", "entityStats": {"DiagnosticsCount" : 0}},
+	{"projectId" : "306", "projectTitle" : "new project testing", "principalInvestigator" : "None", "principalInvestigatorAffiliation" : "None", "entityStats": {"DiagnosticsCount" : 0}},
+	{"projectId" : "0", "projectTitle" : "VertNet", "principalInvestigator" : "", "principalInvestigatorAffiliation" : "", "entityStats": {"DiagnosticsCount" : 476182}}
+]

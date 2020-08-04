@@ -34,12 +34,9 @@ def quicktest():
 def fetch_geome_data():
     print("fetching data...")
     # populate proejcts array with a complete list of project IDs for this team
-    futresTeamID = 70   
     #df = pd.DataFrame(columns = columns)
      
-    # this will fetch a list of ALL projects from GEOME        
-    # TODO: dynamically fetch access_token
-    access_token = "BRgRWgZqRw57GRNHpyA5"    
+    # this will fetch a list of ALL projects from GEOME          
     url = "https://api.geome-db.org/projects?includePublic=false&access_token="+access_token    
     r = requests.get(url)
     print("fetching " + url)
@@ -59,6 +56,11 @@ def fetch_geome_data():
                 excel_file_url = json.loads(r.content)['url']   + "?access_token=" + access_token             
                 reqRet = urllib.request.urlretrieve(excel_file_url, temp_file)                
                                                                   
+def file_len(fname):
+    with open(fname) as f:
+        for i, l in enumerate(f):
+            pass
+    return i + 1
                 
 def process_data():
     df = pd.DataFrame(columns = columns)
@@ -265,6 +267,56 @@ def json_writer(group,name,filename,definition):
     with open(filename,'w') as f:
         f.write(jsonstr)
 
+# fetch data from GEOME that matches the Futres TEAM and put into an easily queriable format.
+def project_table_builder():
+    print("building project table...")
+    filename = 'data/projects.json'
+    api.write("|"+filename+"|display project data|\n")
+    # populate proejcts array with a complete list of project IDs for this team
+    # this will fetch a list of ALL projects from GEOME        
+    url = "https://api.geome-db.org/projects/stats?includePublic=false&access_token="+access_token    
+    r = requests.get(url)
+    jsonstr = "["
+    for project in json.loads(r.content):
+        projectConfigurationID = project["projectConfiguration"]["id"]
+        # filter for just projects matching the teamID
+        if (projectConfigurationID == futresTeamID): 
+            jsonstr += "\n\t{"           
+            projectId =  str(project["projectId"])
+            projectTitle = str(project["projectTitle"])
+            principalInvestigator  = str(project["principalInvestigator"])
+            principalInvestigatorAffiliation = str(project['principalInvestigatorAffiliation'])
+            diagnosticsCount = project["entityStats"]["DiagnosticsCount"]
+            jsonstr += "\"projectId\" : \"" + projectId + "\", "
+            jsonstr += "\"projectTitle\" : \"" + projectTitle + "\", "
+            jsonstr += "\"principalInvestigator\" : \"" + principalInvestigator + "\", "
+            jsonstr += "\"principalInvestigatorAffiliation\" : \"" + principalInvestigatorAffiliation + "\", "
+            jsonstr += "\"entityStats\": {\"DiagnosticsCount\" : " + str(diagnosticsCount) + "}"
+            jsonstr += "},"
+    
+    # count records in vertnet data
+    # each line in vertnet directory is a measurement, count number of lines in files
+    len = 0
+    for subdir, dirs, files in os.walk('vertnet'):
+        for file in files:
+            ext = os.path.splitext(file)[-1].lower()        
+            prefix = os.path.splitext(file)[0].split("_")[0]            
+            
+            if ext == ".csv" and prefix == "FuTRES":    
+                len += file_len('vertnet/'+file)
+    
+    jsonstr += "\n\t{"           
+    jsonstr += "\"projectId\" : \"0\", "
+    jsonstr += "\"projectTitle\" : \"VertNet\", "
+    jsonstr += "\"principalInvestigator\" : \"\", "
+    jsonstr += "\"principalInvestigatorAffiliation\" : \"\", "
+    jsonstr += "\"entityStats\": {\"DiagnosticsCount\" : " + str(len) + "}"
+    jsonstr += "}"    
+    jsonstr += "\n]"
+    
+    with open(filename,'w') as f:
+        f.write(jsonstr)
+
 def read_processed_data():
     print("reading processed data ...")
     return pd.read_excel(processed_filename)
@@ -305,7 +357,12 @@ processed_csv_filename_zipped = 'data/futres_data_processed.csv.gz'
 
 #quicktest()
 
-#fetch_geome_data()
+# TODO: dynamically fetch access_token
+access_token = "d6Zs5m4-P6tz7VwsnsV3"  
+futresTeamID = 70       
+
+fetch_geome_data()
+project_table_builder()
 process_data()
 df = read_processed_data()
 df = taxonomize(df)
