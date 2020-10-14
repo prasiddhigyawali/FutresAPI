@@ -4,3 +4,6 @@ data/temp_output.xlsx
 data/futres_data_processed.xlsx
 data/*.xlsx
 .vscode/
+config.properties
+vertnet/
+vertnet.bak/

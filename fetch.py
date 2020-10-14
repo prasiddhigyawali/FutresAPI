@@ -28,7 +28,13 @@ def quicktest():
 
     df = pd.read_excel(temp_file,sheet_name='Samples', na_filter=False)                                                    
     df = taxonomize(df)
-    print (df)
+        
+    group = df.groupby('scientificName')['scientificName'].size()    
+    json_writer(group,'scientificName','data/scientificName.json','counts grouped by scientificName') 
+    
+    group = df.groupby('scientificName')['scientificName'].value_counts().sort_values(ascending=False).head(20)            
+    json_writer(group,'scientificName','data/scientificName_top20.json','counts grouped by scientificName for top 20 names') 
+    
     
 # fetch data from GEOME that matches the Futres TEAM and put into an easily queriable format.
 def fetch_geome_data():
@@ -106,7 +112,7 @@ def process_data():
     
     print("writing dataframe to spreadsheet and zipped csv file...")            
     # write to an excel file, used for later processing
-    df.to_excel(processed_filename,index=False)    
+    #df.to_excel(processed_filename,index=False)    
     # Create a compressed output file so people can view a limited set of columns for the complete dataset
     SamplesDFOutput = df.reindex(columns=columns)
     SamplesDFOutput.to_csv(processed_csv_filename_zipped, index=False, compression="gzip")                  
@@ -251,16 +257,18 @@ def json_tuple_writer_scientificName_listing(group,name,df):
     api.write("|scientificName_listing.json|All scientific names and the projects that they appear in|\n")
         
 # function to write JSON from pandas groupby
-def json_writer(group,name,filename,definition):
+def json_writer(group,name,filename,definition):    
     api.write("|"+filename+"|"+definition+"|\n")
-    
     jsonstr = '[\n'
     for (rownum,val) in enumerate(group.iteritems()):                        
         jsonstr+="\t{"
-        jsonstr+="\""+name+"\":\""+str(val[0])+"\","            
+        # if type comes through as tuple here just take first element
+        if type(val[0]) is tuple:
+            jsonstr+="\""+name+"\":\""+str(val[0][0])+"\","            
+        else:
+            jsonstr+="\""+name+"\":\""+str(val[0])+"\","            
         jsonstr+="\"value\":"+str(val[1])  
-        jsonstr+="},\n"                   
-        
+        jsonstr+="},\n"                           
         
     jsonstr = jsonstr.rstrip(',\n')
     jsonstr += '\n]'
@@ -286,30 +294,36 @@ def project_table_builder():
             projectTitle = str(project["projectTitle"])
             principalInvestigator  = str(project["principalInvestigator"])
             principalInvestigatorAffiliation = str(project['principalInvestigatorAffiliation'])
+            public = str(project["public"])
+            discoverable  = str(project["discoverable"])
             diagnosticsCount = project["entityStats"]["DiagnosticsCount"]
             jsonstr += "\"projectId\" : \"" + projectId + "\", "
             jsonstr += "\"projectTitle\" : \"" + projectTitle + "\", "
             jsonstr += "\"principalInvestigator\" : \"" + principalInvestigator + "\", "
             jsonstr += "\"principalInvestigatorAffiliation\" : \"" + principalInvestigatorAffiliation + "\", "
+            jsonstr += "\"public\" : \"" + public + "\", "
+            jsonstr += "\"discoverable\" : \"" + discoverable + "\", "
             jsonstr += "\"entityStats\": {\"DiagnosticsCount\" : " + str(diagnosticsCount) + "}"
             jsonstr += "},"
     
     # count records in vertnet data
     # each line in vertnet directory is a measurement, count number of lines in files
     len = 0
-    for subdir, dirs, files in os.walk('vertnet'):
+    for subdir, dirs, files in os.walk('vertnet'):        
         for file in files:
             ext = os.path.splitext(file)[-1].lower()        
             prefix = os.path.splitext(file)[0].split("_")[0]            
             
-            if ext == ".csv" and prefix == "FuTRES":    
+            if ext == ".csv" and prefix == "FuTRES":                 
                 len += file_len('vertnet/'+file)
     
     jsonstr += "\n\t{"           
-    jsonstr += "\"projectId\" : \"0\", "
+    jsonstr += "\"projectId\" : \"Vertnet\", "
     jsonstr += "\"projectTitle\" : \"VertNet\", "
     jsonstr += "\"principalInvestigator\" : \"\", "
     jsonstr += "\"principalInvestigatorAffiliation\" : \"\", "
+    jsonstr += "\"public\" : \"" + public + "\", "
+    jsonstr += "\"discoverable\" : \"" + discoverable + "\", "
     jsonstr += "\"entityStats\": {\"DiagnosticsCount\" : " + str(len) + "}"
     jsonstr += "}"    
     jsonstr += "\n]"
@@ -319,7 +333,8 @@ def project_table_builder():
 
 def read_processed_data():
     print("reading processed data ...")
-    return pd.read_excel(processed_filename)
+    #return pd.read_excel(processed_filename)
+    return pd.read_csv(processed_csv_filename_zipped)
     
 def group_data(df):      
     print("grouping results ...")    
@@ -327,6 +342,9 @@ def group_data(df):
     group = df.groupby('scientificName')['scientificName'].size()    
     json_writer(group,'scientificName','data/scientificName.json','counts grouped by scientificName') 
     
+    group = df.groupby('scientificName')['scientificName'].value_counts().sort_values(ascending=False).head(20)            
+    json_writer(group,'scientificName','data/scientificName_top20.json','counts grouped by scientificName for top 20 names') 
+     
     group = df.groupby('country')['country'].size()    
     json_writer(group,'country','data/country.json','counts grouped by country') 
     
@@ -358,10 +376,10 @@ processed_csv_filename_zipped = 'data/futres_data_processed.csv.gz'
 #quicktest()
 
 # TODO: dynamically fetch access_token
-access_token = "d6Zs5m4-P6tz7VwsnsV3"  
+access_token = "B5jYEQPgKaz4u4yMGDrZ"  
 futresTeamID = 70       
 
-fetch_geome_data()
+#fetch_geome_data()
 project_table_builder()
 process_data()
 df = read_processed_data()

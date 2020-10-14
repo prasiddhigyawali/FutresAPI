@@ -5,6 +5,7 @@ Futres API Documentation
 |----|---|
 |data/projects.json|display project data|
 |data/scientificName.json|counts grouped by scientificName|
+|data/scientificName_top20.json|counts grouped by scientificName for top 20 names|
 |data/country.json|counts grouped by country|
 |data/yearCollected.json|counts grouped by yearCollected|
 |data/measurementType.json|measuremenType|
