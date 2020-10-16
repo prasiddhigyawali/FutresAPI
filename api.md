@@ -7,6 +7,7 @@ Futres API Documentation
 |data/scientificName.json|counts grouped by scientificName|
 |data/scientificName_top20.json|counts grouped by scientificName for top 20 names|
 |data/country.json|counts grouped by country|
+|data/country_top20.json|counts grouped by country for top 20 names|
 |data/yearCollected.json|counts grouped by yearCollected|
 |data/measurementType.json|measuremenType|
 |data/scientificName_projectId_277.json|unique scientificName count for project 277|

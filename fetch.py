@@ -344,9 +344,12 @@ def group_data(df):
     
     group = df.groupby('scientificName')['scientificName'].value_counts().sort_values(ascending=False).head(20)            
     json_writer(group,'scientificName','data/scientificName_top20.json','counts grouped by scientificName for top 20 names') 
-     
+              
     group = df.groupby('country')['country'].size()    
     json_writer(group,'country','data/country.json','counts grouped by country') 
+    
+    group = df.groupby('country')['country'].value_counts().sort_values(ascending=False).head(20)            
+    json_writer(group,'country','data/country_top20.json','counts grouped by country for top 20 names') 
     
     group = df.groupby('yearCollected')['yearCollected'].size()    
     json_writer(group,'yearCollected','data/yearCollected.json','counts grouped by yearCollected') 
