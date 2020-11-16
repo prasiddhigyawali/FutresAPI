@@ -7,3 +7,5 @@ data/*.xlsx
 config.properties
 vertnet/
 vertnet.bak/
+db.ini
+.python-version

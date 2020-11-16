@@ -7,6 +7,9 @@ import urllib.request
 import numpy as np
 import os
 import re
+import configparser
+  
+
 
 # hold scientificName objects which 
 class scientificNames:
@@ -50,7 +53,7 @@ def fetch_geome_data():
     for project in json.loads(r.content):
         projectConfigurationID = project["projectConfiguration"]["id"]
         # filter for just projects matching the teamID
-        if (projectConfigurationID == futresTeamID):
+        if (projectConfigurationID == futres_team_id):
             
             url="https://api.geome-db.org/records/Event/excel?networkId=1&q=_projects_:" + str(project["projectId"]) + "+_select_:%5BSample,Diagnostics%5D" + "&access_token="+access_token
             r = requests.get(url)
@@ -288,7 +291,7 @@ def project_table_builder():
     for project in json.loads(r.content):
         projectConfigurationID = project["projectConfiguration"]["id"]
         # filter for just projects matching the teamID
-        if (projectConfigurationID == futresTeamID): 
+        if (projectConfigurationID == futres_team_id): 
             jsonstr += "\n\t{"           
             projectId =  str(project["projectId"])
             projectTitle = str(project["projectTitle"])
@@ -365,28 +368,47 @@ def group_data(df):
     group = df.groupby(['scientificName','projectId']).size()
     json_tuple_writer_scientificName_listing(group,'scientificName',df)
 
+# Require minimum python version
+MIN_PYTHON = (3, 6)
+if sys.version_info < MIN_PYTHON:
+    sys.exit("Python %s.%s or later is required.\n" % MIN_PYTHON)
+    
+# Setup API output
 api = open("api.md","w")
 api.write("# API\n\n")
 api.write("Futres API Documentation\n")
 api.write("|filename|definition|\n")
 api.write("|----|---|\n")
 
-# global variables
-columns = ['materialSampleID','country','locality','yearCollected','samplingProtocol','basisOfRecord','scientificName','measurementMethod','measurementUnit','measurementType','measurementValue','lifeStage','individualID','sex','decimalLatitude','decimalLongitude','projectId']
-processed_filename = 'data/futres_data_processed.xlsx'
-processed_csv_filename_zipped = 'data/futres_data_processed.csv.gz'
+# Setup initial Environment
+parser = configparser.ConfigParser()
+if os.path.exists("db.ini") == False:
+    print("unable fo read db.ini file, try copying dbtemp.ini to db.ini and updating setttings")
+    sys.exit()
+  
+parser.read('db.ini')  
 
-#quicktest()
+# global variables
+columns = parser.get('globals','columns')
+processed_filename = parser.get('globals','processed_filename')
+processed_csv_filename_zipped = parser.get('globals','processed_csv_filename_zipped')
+
+# geomedb variables
+host = parser.get('geomedb', 'url')
+user = parser.get('geomedb', 'username')
+passwd = parser.get('geomedb', 'password')
+futres_team_id = parser.get('geomedb', 'futres_team_id')
+
+quicktest()
 
 # TODO: dynamically fetch access_token
 access_token = "B5jYEQPgKaz4u4yMGDrZ"  
-futresTeamID = 70       
 
 #fetch_geome_data()
-project_table_builder()
-process_data()
-df = read_processed_data()
-df = taxonomize(df)
-group_data(df)
+#project_table_builder()
+#process_data()
+#df = read_processed_data()
+#df = taxonomize(df)
+#group_data(df)
 
-api.close()
+#api.close()
