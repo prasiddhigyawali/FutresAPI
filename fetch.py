@@ -122,6 +122,10 @@ def taxonomize(df):
     df['scientificName'] = df['scientificName'].str.replace('sp.','')
     df['scientificName'] = df['scientificName'].str.replace('sp','')
     df['scientificName'] = df['scientificName'].str.replace('aff.','')
+    df['scientificName'] = df['scientificName'].str.replace('(new SW','')
+    df['scientificName'] = df['scientificName'].str.replace('whale','')
+    df['scientificName'] = df['scientificName'].str.replace('unknown','')
+
     # remove all material between parenthesis and the paranthesis themselves
     df['scientificName'] = df['scientificName'].str.replace("\((.*?)\)",'')  
     df['scientificName'] = df['scientificName'].str.strip()
