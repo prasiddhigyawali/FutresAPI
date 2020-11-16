@@ -279,9 +279,11 @@ def json_writer(group,name,filename,definition):
         f.write(jsonstr)
 
 # fetch data from GEOME that matches the Futres TEAM and put into an easily queriable format.
-def project_table_builder():
+def project_table_builder():    
     print("building project table...")
     filename = 'data/projects.json'
+    public = True
+    discoverable = True
     api.write("|"+filename+"|display project data|\n")
     # populate proejcts array with a complete list of project IDs for this team
     # this will fetch a list of ALL projects from GEOME        
@@ -290,8 +292,8 @@ def project_table_builder():
     jsonstr = "["
     for project in json.loads(r.content):
         projectConfigurationID = project["projectConfiguration"]["id"]
-        # filter for just projects matching the teamID
-        if (projectConfigurationID == futres_team_id): 
+        # filter for just projects matching the teamID  
+        if (str(projectConfigurationID) == str(futres_team_id)):     
             jsonstr += "\n\t{"           
             projectId =  str(project["projectId"])
             projectTitle = str(project["projectTitle"])
@@ -325,8 +327,8 @@ def project_table_builder():
     jsonstr += "\"projectTitle\" : \"VertNet\", "
     jsonstr += "\"principalInvestigator\" : \"\", "
     jsonstr += "\"principalInvestigatorAffiliation\" : \"\", "
-    jsonstr += "\"public\" : \"" + public + "\", "
-    jsonstr += "\"discoverable\" : \"" + discoverable + "\", "
+    jsonstr += "\"public\" : \"" + str(public) + "\", "
+    jsonstr += "\"discoverable\" : \"" + str(discoverable) + "\", "
     jsonstr += "\"entityStats\": {\"DiagnosticsCount\" : " + str(len) + "}"
     jsonstr += "}"    
     jsonstr += "\n]"
@@ -368,6 +370,10 @@ def group_data(df):
     group = df.groupby(['scientificName','projectId']).size()
     json_tuple_writer_scientificName_listing(group,'scientificName',df)
 
+
+######################################################
+# Run Application Code
+######################################################
 # Require minimum python version
 MIN_PYTHON = (3, 6)
 if sys.version_info < MIN_PYTHON:
@@ -389,9 +395,9 @@ if os.path.exists("db.ini") == False:
 parser.read('db.ini')  
 
 # global variables
-columns = parser.get('globals','columns')
-processed_filename = parser.get('globals','processed_filename')
-processed_csv_filename_zipped = parser.get('globals','processed_csv_filename_zipped')
+columns = ['materialSampleID','country','locality','yearCollected','samplingProtocol','basisOfRecord','scientificName','measurementMethod','measurementUnit','measurementType','measurementValue','lifeStage','individualID','sex','decimalLatitude','decimalLongitude','projectId']
+processed_filename = 'data/futres_data_processed.xlsx'
+processed_csv_filename_zipped = 'data/futres_data_processed.csv.gz'
 
 # geomedb variables
 host = parser.get('geomedb', 'url')
@@ -399,16 +405,18 @@ user = parser.get('geomedb', 'username')
 passwd = parser.get('geomedb', 'password')
 futres_team_id = parser.get('geomedb', 'futres_team_id')
 
-quicktest()
-
 # TODO: dynamically fetch access_token
-access_token = "B5jYEQPgKaz4u4yMGDrZ"  
+access_token = "Rd9Sa-e2vE2uFA98F-9a"  
 
-#fetch_geome_data()
-#project_table_builder()
-#process_data()
-#df = read_processed_data()
-#df = taxonomize(df)
-#group_data(df)
+# Run Application
+#quicktest()
 
-#api.close()
+fetch_geome_data()
+project_table_builder()
+process_data()
+df = read_processed_data()
+df = taxonomize(df)
+group_data(df)
+
+# Finish up
+api.close()
