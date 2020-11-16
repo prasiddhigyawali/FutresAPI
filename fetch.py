@@ -7,11 +7,9 @@ import urllib.request
 import numpy as np
 import os
 import re
-import configparser
-  
-
-
-# hold scientificName objects which 
+import configparser     
+        
+# hold scientificName objects 
 class scientificNames:
     def __init__(self, name):  
         self.name = name  
@@ -23,8 +21,7 @@ class projectCounter:
     def __init__(self, projectId, count):  
         self.projectId = projectId
         self.count = count
-
-
+                         
 def quicktest():
     temp_file = "test.xlsx"
     print ('processing ' + temp_file)
