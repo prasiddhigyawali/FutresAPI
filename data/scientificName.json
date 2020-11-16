@@ -1,5 +1,4 @@
 [
-	{"scientificName":"(new SW","value":35},
 	{"scientificName":"Aarat","value":9},
 	{"scientificName":"Abeomelomys sevia","value":21},
 	{"scientificName":"Abrocoma","value":5},
@@ -3471,6 +3470,7 @@
 	{"scientificName":"Typhlomys cinereus","value":6},
 	{"scientificName":"Uncia uncia","value":65},
 	{"scientificName":"Unknown","value":60},
+	{"scientificName":"Unkown","value":112},
 	{"scientificName":"Uranomys ruddi","value":7},
 	{"scientificName":"Urocitellus","value":29},
 	{"scientificName":"Urocitellus armatus","value":486},
@@ -3569,7 +3569,5 @@
 	{"scientificName":"Zygolophodon turicensis","value":1},
 	{"scientificName":"Zyzomys argurus","value":42},
 	{"scientificName":"Zyzomys woodwardi","value":1},
-	{"scientificName":"sigmodon hidus","value":5},
-	{"scientificName":"unknown","value":75},
-	{"scientificName":"whale","value":2}
+	{"scientificName":"sigmodon hidus","value":5}
 ]

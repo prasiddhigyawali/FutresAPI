@@ -1,5 +1,4 @@
 [
-	{"scientificName" : "(new SW" , "associatedProjects" : [{"projectId" : "Vertnet" , "count" : 35}]},
 	{"scientificName" : "Aarat" , "associatedProjects" : [{"projectId" : "Vertnet" , "count" : 9}]},
 	{"scientificName" : "Abeomelomys sevia" , "associatedProjects" : [{"projectId" : "Vertnet" , "count" : 21}]},
 	{"scientificName" : "Abrocoma" , "associatedProjects" : [{"projectId" : "Vertnet" , "count" : 5}]},
@@ -3471,6 +3470,7 @@
 	{"scientificName" : "Typhlomys cinereus" , "associatedProjects" : [{"projectId" : "Vertnet" , "count" : 6}]},
 	{"scientificName" : "Uncia uncia" , "associatedProjects" : [{"projectId" : "Vertnet" , "count" : 65}]},
 	{"scientificName" : "Unknown" , "associatedProjects" : [{"projectId" : "314" , "count" : 3},{"projectId" : "Vertnet" , "count" : 57}]},
+	{"scientificName" : "Unkown" , "associatedProjects" : [{"projectId" : "314" , "count" : 75},{"projectId" : "Vertnet" , "count" : 37}]},
 	{"scientificName" : "Uranomys ruddi" , "associatedProjects" : [{"projectId" : "Vertnet" , "count" : 7}]},
 	{"scientificName" : "Urocitellus" , "associatedProjects" : [{"projectId" : "Vertnet" , "count" : 29}]},
 	{"scientificName" : "Urocitellus armatus" , "associatedProjects" : [{"projectId" : "Vertnet" , "count" : 486}]},
@@ -3568,6 +3568,4 @@
 	{"scientificName" : "Zygogeomys trichopus" , "associatedProjects" : [{"projectId" : "Vertnet" , "count" : 4}]},
 	{"scientificName" : "Zygolophodon turicensis" , "associatedProjects" : [{"projectId" : "Vertnet" , "count" : 1}]},
 	{"scientificName" : "Zyzomys argurus" , "associatedProjects" : [{"projectId" : "Vertnet" , "count" : 42}]},
-	{"scientificName" : "Zyzomys woodwardi" , "associatedProjects" : [{"projectId" : "Vertnet" , "count" : 1}]},
-	{"scientificName" : "sigmodon hidus" , "associatedProjects" : [{"projectId" : "Vertnet" , "count" : 5}]},
-	{"scientificName" : "unknown" , "associatedProjects" : [{"projectId" : "314" , "count" : 75}]}]
+	{"scientificName" : "Zyzomys woodwardi" , "associatedProjects" : [{"projectId" : "Vertnet" , "count" : 1}]}]
