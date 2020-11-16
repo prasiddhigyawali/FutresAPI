@@ -14,5 +14,5 @@
 	{"projectId" : "336", "projectTitle" : "RANGES TEST", "principalInvestigator" : "None", "principalInvestigatorAffiliation" : "None", "public" : "False", "discoverable" : "False", "entityStats": {"DiagnosticsCount" : 0}},
 	{"projectId" : "333", "projectTitle" : "Stegner_Vertebrates_WesternUSA_Quaternary", "principalInvestigator" : "None", "principalInvestigatorAffiliation" : "None", "public" : "False", "discoverable" : "False", "entityStats": {"DiagnosticsCount" : 0}},
 	{"projectId" : "321", "projectTitle" : "SY's FuTRES test data", "principalInvestigator" : "None", "principalInvestigatorAffiliation" : "None", "public" : "False", "discoverable" : "False", "entityStats": {"DiagnosticsCount" : 0}},
-	{"projectId" : "Vertnet", "projectTitle" : "VertNet", "principalInvestigator" : "", "principalInvestigatorAffiliation" : "", "public" : "False", "discoverable" : "False", "entityStats": {"DiagnosticsCount" : 2217425}}
+	{"projectId" : "Vertnet", "projectTitle" : "VertNet", "principalInvestigator" : "", "principalInvestigatorAffiliation" : "", "public" : "True", "discoverable" : "True", "entityStats": {"DiagnosticsCount" : 2217425}}
 ]
