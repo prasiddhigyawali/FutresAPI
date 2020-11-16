@@ -110,9 +110,7 @@ def process_data():
                 thisDF = thisDF[thisDF.measurementValue != '--']   
                 df = df.append(thisDF,sort=False)  
     
-    print("writing dataframe to spreadsheet and zipped csv file...")            
-    # write to an excel file, used for later processing
-    #df.to_excel(processed_filename,index=False)    
+    print("writing dataframe to spreadsheet and zipped csv file...")               
     # Create a compressed output file so people can view a limited set of columns for the complete dataset
     SamplesDFOutput = df.reindex(columns=columns)
     SamplesDFOutput.to_csv(processed_csv_filename_zipped, index=False, compression="gzip")                  
@@ -335,7 +333,6 @@ def project_table_builder():
 
 def read_processed_data():
     print("reading processed data ...")
-    #return pd.read_excel(processed_filename)
     return pd.read_csv(processed_csv_filename_zipped)
     
 def group_data(df):      
@@ -393,7 +390,6 @@ parser.read('db.ini')
 
 # global variables
 columns = ['materialSampleID','country','locality','yearCollected','samplingProtocol','basisOfRecord','scientificName','measurementMethod','measurementUnit','measurementType','measurementValue','lifeStage','individualID','sex','decimalLatitude','decimalLongitude','projectId']
-processed_filename = 'data/futres_data_processed.xlsx'
 processed_csv_filename_zipped = 'data/futres_data_processed.csv.gz'
 
 # geomedb variables

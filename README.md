@@ -16,3 +16,9 @@ https://github.com/biocodellc/ppo-data-server/blob/master/docs/es_futres_proxy.m
 See api.md for the API documentation
 
 When running properties the properties file copy the contents of the dbtemp.ini file to a db.ini file and change the password. 
+
+# Loading into ElasticSearch
+the loader.py script recurses all *.csv files in the data directory
+ * scp data/futres_data_processed.csv.gz to biscicol which has port 80 access to tarly, a cyverse server. Another option is to just run the processing pipeline on biscicol.org
+ * gunzip data/futres_data_processed.csv.gz
+ * python loader.py
