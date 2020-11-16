@@ -9,3 +9,4 @@ https://github.com/biocodellc/ppo-data-server/blob/master/docs/es_futres_proxy.m
 
 See api.md for the API documentation
 
+When running properties the properties file copy the contents of the dbtemp.ini file to a db.ini file and change the password. 
