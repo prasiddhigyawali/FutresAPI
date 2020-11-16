@@ -6,9 +6,13 @@
   * pip install -r requirements.txt 
 
 # Running the Script
-Run the fetch.py command to fetch data from GEOME and it will populate
-JSON files in the data directory.  This repository populates lookup lists using the fetch.py 
-script.  It also populates the elasticsearch backend database using the loader.py script.
+The fetch.py script gets data from GEOME and looks in the vertnet directory for 
+processed Vertnet scripts and populates JSON files in the data directory as well
+as a gzipped `data/futres_data_processed.csv.gz` which we will use in the loader script.
+script.  
+
+The loader.py script populates the elasticsearch backend database using the loader.py script
+See the Loading into ElasticSearch section below.
 
 The FuTRES dynamic data is hosted by the plantphenology nodejs proxy service at:
 https://github.com/biocodellc/ppo-data-server/blob/master/docs/es_futres_proxy.md
