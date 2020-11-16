@@ -50,7 +50,7 @@ def fetch_geome_data():
     for project in json.loads(r.content):
         projectConfigurationID = project["projectConfiguration"]["id"]
         # filter for just projects matching the teamID
-        if (projectConfigurationID == futres_team_id):
+        if (str(projectConfigurationID) == str(futres_team_id)):
             
             url="https://api.geome-db.org/records/Event/excel?networkId=1&q=_projects_:" + str(project["projectId"]) + "+_select_:%5BSample,Diagnostics%5D" + "&access_token="+access_token
             r = requests.get(url)
@@ -122,7 +122,7 @@ def taxonomize(df):
     df['scientificName'] = df['scientificName'].str.replace('sp.','')
     df['scientificName'] = df['scientificName'].str.replace('sp','')
     df['scientificName'] = df['scientificName'].str.replace('aff.','')
-    df['scientificName'] = df['scientificName'].str.replace('(new SW','')
+    df['scientificName'] = df['scientificName'].str.replace('\(new SW','')
     df['scientificName'] = df['scientificName'].str.replace('whale','')
     df['scientificName'] = df['scientificName'].str.replace('unknown','')
 
@@ -384,6 +384,10 @@ api.write("Futres API Documentation\n")
 api.write("|filename|definition|\n")
 api.write("|----|---|\n")
 
+# global variables
+columns = ['materialSampleID','country','locality','yearCollected','samplingProtocol','basisOfRecord','scientificName','measurementMethod','measurementUnit','measurementType','measurementValue','lifeStage','individualID','sex','decimalLatitude','decimalLongitude','projectId']
+processed_csv_filename_zipped = 'data/futres_data_processed.csv.gz'
+
 # Setup initial Environment
 parser = configparser.ConfigParser()
 if os.path.exists("db.ini") == False:
@@ -392,18 +396,13 @@ if os.path.exists("db.ini") == False:
   
 parser.read('db.ini')  
 
-# global variables
-columns = ['materialSampleID','country','locality','yearCollected','samplingProtocol','basisOfRecord','scientificName','measurementMethod','measurementUnit','measurementType','measurementValue','lifeStage','individualID','sex','decimalLatitude','decimalLongitude','projectId']
-processed_csv_filename_zipped = 'data/futres_data_processed.csv.gz'
-
 # geomedb variables
 host = parser.get('geomedb', 'url')
 user = parser.get('geomedb', 'username')
 passwd = parser.get('geomedb', 'password')
 futres_team_id = parser.get('geomedb', 'futres_team_id')
-
 # TODO: dynamically fetch access_token
-access_token = "Rd9Sa-e2vE2uFA98F-9a"  
+access_token = parser.get('geomedb', 'access_token')
 
 # Run Application
 #quicktest()
