@@ -362,6 +362,9 @@ def group_data(df):
     group = df.groupby('yearCollected')['yearCollected'].size()    
     json_writer(group,'yearCollected','data/yearCollected.json','counts grouped by yearCollected') 
     
+    group = df.groupby('measurementUnit')['measurementUnit'].size()
+    json_writer(group,'measurementUnit','data/measurementUnit.json','counts grouped by measurementUnit')
+
     group = df.groupby('measurementType')['measurementType'].size()
     json_writer(group,'measurementType','data/measurementType.json','measuremenType')    
     
@@ -412,7 +415,7 @@ access_token = parser.get('geomedb', 'access_token')
 # Run Application
 #quicktest()
 
-fetch_geome_data()
+#fetch_geome_data()
 project_table_builder()
 process_data()
 df = read_processed_data()
