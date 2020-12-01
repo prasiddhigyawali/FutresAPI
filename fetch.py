@@ -1,4 +1,3 @@
-
 import requests, zipfile, io, sys
 import json
 import xlrd
@@ -102,6 +101,10 @@ def process_data():
                 thisDF = pd.read_csv(temp_file, na_filter=False)                                                
                 thisDF['individualID'] = ''
                 thisDF['projectId'] = 'Vertnet'
+                # create empty columns for genus/specificEpithet, we will use scientificName to 
+                # parse these in taxonomize functon
+                thisDF['genus'] = ''
+                thisDF['specificEpithet'] = ''
                 thisDF = thisDF[columns] 
                       
                 thisDF = thisDF.reindex(columns=columns)            
@@ -110,6 +113,8 @@ def process_data():
                 thisDF = thisDF[thisDF.measurementValue != '--']   
                 df = df.append(thisDF,sort=False)  
     
+    df = taxonomize(df);
+
     print("writing dataframe to spreadsheet and zipped csv file...")               
     # Create a compressed output file so people can view a limited set of columns for the complete dataset
     SamplesDFOutput = df.reindex(columns=columns)
@@ -385,7 +390,7 @@ api.write("|filename|definition|\n")
 api.write("|----|---|\n")
 
 # global variables
-columns = ['materialSampleID','country','locality','yearCollected','samplingProtocol','basisOfRecord','scientificName','measurementMethod','measurementUnit','measurementType','measurementValue','lifeStage','individualID','sex','decimalLatitude','decimalLongitude','projectId']
+columns = ['materialSampleID','country','locality','yearCollected','samplingProtocol','basisOfRecord','scientificName','genus','specificEpithet','measurementMethod','measurementUnit','measurementType','measurementValue','lifeStage','individualID','sex','decimalLatitude','decimalLongitude','projectId']
 processed_csv_filename_zipped = 'data/futres_data_processed.csv.gz'
 
 # Setup initial Environment
@@ -411,7 +416,6 @@ fetch_geome_data()
 project_table_builder()
 process_data()
 df = read_processed_data()
-df = taxonomize(df)
 group_data(df)
 
 # Finish up
