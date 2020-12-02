@@ -1,10 +1,10 @@
 [
-	{"country":"USA","value":1783378},
+	{"country":"USA","value":1770112},
 	{"country":"Canada","value":126549},
 	{"country":"Mexico","value":68368},
-	{"country":"Unknown","value":32413},
 	{"country":"Mongolia","value":27852},
 	{"country":"Argentina","value":27743},
+	{"country":"Unknown","value":27122},
 	{"country":"Panama","value":26574},
 	{"country":"Russia","value":25790},
 	{"country":"Chile","value":12660},
@@ -13,10 +13,10 @@
 	{"country":"Guatemala","value":8640},
 	{"country":"Costa Rica","value":8250},
 	{"country":"Peru","value":4856},
-	{"country":"Kenya","value":3844},
+	{"country":"Kenya","value":3823},
 	{"country":"China","value":3731},
 	{"country":"Indonesia","value":3687},
 	{"country":"Brazil","value":3685},
 	{"country":"Paraguay","value":3166},
-	{"country":"Botswana","value":3042}
+	{"country":"Botswana","value":3039}
 ]

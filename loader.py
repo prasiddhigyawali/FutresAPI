@@ -92,6 +92,7 @@ class ESLoader(object):
                 TYPE: {
                     "properties": {
                         "measurementType": {"type": "text"},
+                        "measurementValue": {"type": "float"},
                         "decimalLatitude": { "type": "float" },
                         "decimalLongitude": { "type": "float" }
                         #"location": { "type": "geo_point" }                        

@@ -87,6 +87,7 @@ def process_data():
                 #thisDF['projectURL'] = str("https://geome-db.org/workbench/project-overview?projectId=") + thisDF['projectId'].astype(str)
                 # Remove bad measurementValues
                 thisDF = thisDF[thisDF.measurementValue != '--']   
+                thisDF = thisDF[thisDF.measurementValue == isinstance(thisDF.measurementValue,float)]   
                 df = df.append(thisDF,sort=False)
     
     print ('processing Vertnet data...')  
