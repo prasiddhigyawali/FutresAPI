@@ -160,8 +160,8 @@ Aethomys,body mass,3
 Aethomys,ear length to notch,5
 Aethomys,pes length,5
 Aethomys,tail length,7
-Aethomys Thomas,,body mass,1
-Aethomys Thomas,,tail length,1
+Aethomys Thomas,body mass,1
+Aethomys Thomas,tail length,1
 Aethomys chrysophilus,body length,173
 Aethomys chrysophilus,body mass,168
 Aethomys chrysophilus,ear length to notch,169
