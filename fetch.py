@@ -1,4 +1,3 @@
-
 import requests, zipfile, io, sys
 import json
 import xlrd
@@ -88,6 +87,7 @@ def process_data():
                 #thisDF['projectURL'] = str("https://geome-db.org/workbench/project-overview?projectId=") + thisDF['projectId'].astype(str)
                 # Remove bad measurementValues
                 thisDF = thisDF[thisDF.measurementValue != '--']   
+                thisDF = thisDF[thisDF.measurementValue == isinstance(thisDF.measurementValue,float)]   
                 df = df.append(thisDF,sort=False)
     
     print ('processing Vertnet data...')  
@@ -102,6 +102,10 @@ def process_data():
                 thisDF = pd.read_csv(temp_file, na_filter=False)                                                
                 thisDF['individualID'] = ''
                 thisDF['projectId'] = 'Vertnet'
+                # create empty columns for genus/specificEpithet, we will use scientificName to 
+                # parse these in taxonomize functon
+                thisDF['genus'] = ''
+                thisDF['specificEpithet'] = ''
                 thisDF = thisDF[columns] 
                       
                 thisDF = thisDF.reindex(columns=columns)            
@@ -110,6 +114,8 @@ def process_data():
                 thisDF = thisDF[thisDF.measurementValue != '--']   
                 df = df.append(thisDF,sort=False)  
     
+    df = taxonomize(df);
+
     print("writing dataframe to spreadsheet and zipped csv file...")               
     # Create a compressed output file so people can view a limited set of columns for the complete dataset
     SamplesDFOutput = df.reindex(columns=columns)
@@ -371,6 +377,9 @@ def group_data(df):
     group = df.groupby('yearCollected')['yearCollected'].size()    
     json_writer(group,'yearCollected','data/yearCollected.json','counts grouped by yearCollected') 
     
+    group = df.groupby('measurementUnit')['measurementUnit'].size()
+    json_writer(group,'measurementUnit','data/measurementUnit.json','counts grouped by measurementUnit')
+
     group = df.groupby('measurementType')['measurementType'].size()
     json_writer(group,'measurementType','data/measurementType.json','measuremenType')    
     
@@ -402,7 +411,7 @@ api.write("|filename|definition|\n")
 api.write("|----|---|\n")
 
 # global variables
-columns = ['materialSampleID','country','locality','yearCollected','samplingProtocol','basisOfRecord','scientificName','measurementMethod','measurementUnit','measurementType','measurementValue','lifeStage','individualID','sex','decimalLatitude','decimalLongitude','projectId']
+columns = ['materialSampleID','country','locality','yearCollected','samplingProtocol','basisOfRecord','scientificName','genus','specificEpithet','measurementMethod','measurementUnit','measurementType','measurementValue','lifeStage','individualID','sex','decimalLatitude','decimalLongitude','projectId']
 processed_csv_filename_zipped = 'data/futres_data_processed.csv.gz'
 
 # Setup initial Environment
@@ -428,7 +437,6 @@ futres_team_id = parser.get('geomedb', 'futres_team_id')
 #project_table_builder()
 process_data()
 df = read_processed_data()
-df = taxonomize(df)
 group_data(df)
 
 # Finish up

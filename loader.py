@@ -76,8 +76,7 @@ class ESLoader(object):
             reader = csv.DictReader(f)
 
             for row in reader:
-                #TODO: only set location if lat/lng are always set
-                #row['location'] = row['decimalLatitude'] + "," + row['decimalLongitude'] 
+                row['location'] = row['decimalLatitude'] + "," + row['decimalLongitude'] 
                 data.append({k: v for k, v in row.items() if v})  # remove any empty values
 
             elasticsearch.helpers.bulk(client=self.es, index=self.index_name, actions=data, doc_type=TYPE,
@@ -93,6 +92,7 @@ class ESLoader(object):
                 TYPE: {
                     "properties": {
                         "measurementType": {"type": "text"},
+                        "measurementValue": {"type": "float"},
                         "decimalLatitude": { "type": "float" },
                         "decimalLongitude": { "type": "float" }
                         #"location": { "type": "geo_point" }                        
