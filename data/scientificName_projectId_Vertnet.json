@@ -1,6 +1,4 @@
 [
-	{"scientificName":"(Linnaeus","value":1},
-	{"scientificName":", large","value":1},
 	{"scientificName":"Aarat","value":9},
 	{"scientificName":"Abeomelomys sevia","value":21},
 	{"scientificName":"Abrocoma","value":5},
@@ -3421,7 +3419,7 @@
 	{"scientificName":"Typhlomys cinereus","value":6},
 	{"scientificName":"Uncia uncia","value":65},
 	{"scientificName":"Unknown","value":57},
-	{"scientificName":"Unkown","value":812},
+	{"scientificName":"Unkown","value":814},
 	{"scientificName":"Uranomys ruddi","value":7},
 	{"scientificName":"Urocitellus","value":29},
 	{"scientificName":"Urocitellus armatus","value":486},

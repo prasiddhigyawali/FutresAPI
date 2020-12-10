@@ -1,6 +1,4 @@
 [
-	{"scientificName" : "(Linnaeus" , "associatedProjects" : [{"projectId" : "Vertnet" , "count" : 1}]},
-	{"scientificName" : ", large" , "associatedProjects" : [{"projectId" : "Vertnet" , "count" : 1}]},
 	{"scientificName" : "Aarat" , "associatedProjects" : [{"projectId" : "Vertnet" , "count" : 9}]},
 	{"scientificName" : "Abeomelomys sevia" , "associatedProjects" : [{"projectId" : "Vertnet" , "count" : 21}]},
 	{"scientificName" : "Abrocoma" , "associatedProjects" : [{"projectId" : "Vertnet" , "count" : 5}]},
@@ -3421,7 +3419,7 @@
 	{"scientificName" : "Typhlomys cinereus" , "associatedProjects" : [{"projectId" : "Vertnet" , "count" : 6}]},
 	{"scientificName" : "Uncia uncia" , "associatedProjects" : [{"projectId" : "Vertnet" , "count" : 65}]},
 	{"scientificName" : "Unknown" , "associatedProjects" : [{"projectId" : "Vertnet" , "count" : 57}]},
-	{"scientificName" : "Unkown" , "associatedProjects" : [{"projectId" : "Vertnet" , "count" : 812}]},
+	{"scientificName" : "Unkown" , "associatedProjects" : [{"projectId" : "Vertnet" , "count" : 814}]},
 	{"scientificName" : "Uranomys ruddi" , "associatedProjects" : [{"projectId" : "Vertnet" , "count" : 7}]},
 	{"scientificName" : "Urocitellus" , "associatedProjects" : [{"projectId" : "Vertnet" , "count" : 29}]},
 	{"scientificName" : "Urocitellus armatus" , "associatedProjects" : [{"projectId" : "Vertnet" , "count" : 486}]},
