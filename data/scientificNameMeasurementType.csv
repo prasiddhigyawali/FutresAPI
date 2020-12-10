@@ -1,3 +1,5 @@
+(Linnaeus,body mass,1
+, large,body length,1
 Aarat,body length,2
 Aarat,body mass,1
 Aarat,ear length to notch,2
@@ -5595,13 +5597,6 @@ Malacothrix typica,tail length,1
 Mallomys,body length,1
 Mallomys rothschildi,body length,16
 Malpaisomys insularis,body length,2
-Mammalia,body length,382
-Mammalia,body mass,60
-Mammalia,ear length to notch,92
-Mammalia,pes length,121
-Mammalia,tail length,120
-Mammalia (Linnaeus,body mass,1
-Mammalia, large,body length,1
 Mammut americanum,body length,3
 Mammut americanum,body mass,4
 Mammuthus,body length,4
@@ -12335,11 +12330,11 @@ Unknown,body mass,7
 Unknown,ear length to notch,12
 Unknown,pes length,11
 Unknown,tail length,13
-Unkown,body length,9
-Unkown,body mass,7
-Unkown,ear length to notch,7
-Unkown,pes length,7
-Unkown,tail length,7
+Unkown,body length,391
+Unkown,body mass,67
+Unkown,ear length to notch,99
+Unkown,pes length,128
+Unkown,tail length,127
 Uranomys ruddi,body length,2
 Uranomys ruddi,body mass,1
 Uranomys ruddi,ear length to notch,1
