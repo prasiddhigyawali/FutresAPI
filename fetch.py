@@ -211,6 +211,20 @@ def json_tuple_writer_scientificName_projectId(group,name):
     with open('data/scientificName_projectId_' + thisprojectId +".json",'w') as f:
                 f.write(jsonstr)        
          
+         
+# function to write tuples to json from pandas group by
+# using two group by statements.
+def json_tuple_writer_scientificName_measurementType(group,name):
+    csvstr = ''
+    for rownum,(indx,val) in enumerate(group.iteritems()):               
+        thisSciName = str(indx[0])
+        thisMeasurementType = str(indx[1])
+        thisVal = str(val)
+        csvstr += thisSciName +","+thisMeasurementType+","+thisVal +"\n"
+    with open('data/scientificNameMeasurementType.csv','w') as f:
+        f.write(csvstr) 
+        
+                 
 # Create a file for each scientificName listing the projects that it occurs in.
 def json_tuple_writer_scientificName_listing(group,name,df):
     scientificName = ''
@@ -368,6 +382,9 @@ def group_data(df):
     group = df.groupby(['scientificName','projectId']).size()
     json_tuple_writer_scientificName_listing(group,'scientificName',df)
 
+    # measurementType/scientificName
+    group = df.groupby(['scientificName','measurementType']).size()
+    json_tuple_writer_scientificName_measurementType(group,'scientificName')
 
 ######################################################
 # Run Application Code
@@ -402,13 +419,13 @@ user = parser.get('geomedb', 'username')
 passwd = parser.get('geomedb', 'password')
 futres_team_id = parser.get('geomedb', 'futres_team_id')
 # TODO: dynamically fetch access_token
-access_token = parser.get('geomedb', 'access_token')
+#access_token = parser.get('geomedb', 'access_token')
 
 # Run Application
 #quicktest()
 
-fetch_geome_data()
-project_table_builder()
+#fetch_geome_data()
+#project_table_builder()
 process_data()
 df = read_processed_data()
 df = taxonomize(df)
