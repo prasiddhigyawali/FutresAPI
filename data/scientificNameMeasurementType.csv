@@ -139,13 +139,10 @@ Adelomyarion vireti,body length,1
 Adenota kob,body length,4
 Adenota vardoni,body length,1
 Aepyceros melampus,body length,19
-Aepyceros melampus,body mass,10
+Aepyceros melampus,body mass,4
 Aepyceros melampus,ear length to notch,3
-Aepyceros melampus,femur length,15
-Aepyceros melampus,humerus length,14
 Aepyceros melampus,pes length,3
 Aepyceros melampus,tail length,3
-Aepyceros melampus,talus length,15
 Aepyprymnus rufescens,body length,6
 Aepyprymnus rufescens,body mass,2
 Aepyprymnus rufescens,ear length to notch,2
@@ -462,10 +459,10 @@ Alouatta,body mass,1
 Alouatta,ear length to notch,1
 Alouatta,pes length,1
 Alouatta,tail length,1
-Alouatta Lacpde,,body length,1
-Alouatta Lacpde,,ear length to notch,1
-Alouatta Lacpde,,pes length,1
-Alouatta Lacpde,,tail length,1
+Alouatta Lacpde,body length,1
+Alouatta Lacpde,ear length to notch,1
+Alouatta Lacpde,pes length,1
+Alouatta Lacpde,tail length,1
 Alouatta belzebul,body length,1
 Alouatta caraya,body length,2
 Alouatta caraya,pes length,1
@@ -596,7 +593,7 @@ Andinomys edax,pes length,30
 Andinomys edax,tail length,30
 Anisomys imitator,body length,1
 Anomalomys minutus,body length,1
-Anomalurus Waterhouse,,body mass,1
+Anomalurus Waterhouse,body mass,1
 Anomalurus derbianus,body length,6
 Anomalurus derbianus,body mass,9
 Anomalurus derbianus,ear length to notch,1
@@ -704,7 +701,7 @@ Apodemus,ear length to notch,49
 Apodemus,pes length,51
 Apodemus,tail length,51
 Apodemus Kaup,body length,1
-Apodemus Kaup,,tail length,2
+Apodemus Kaup,tail length,2
 Apodemus agrarius,body length,387
 Apodemus agrarius,body mass,354
 Apodemus agrarius,ear length to notch,343
@@ -985,7 +982,7 @@ Balaena mysticetus,tail length,2
 Balaenoptera,body length,6
 Balaenoptera,body mass,1
 Balaenoptera,tail length,1
-Balaenoptera Lacpde,,body length,2
+Balaenoptera Lacpde,body length,2
 Balaenoptera acutorostrata,body length,14
 Balaenoptera acutorostrata,body mass,3
 Balaenoptera borealis,body length,3
@@ -1257,10 +1254,10 @@ Callicebus,body length,3
 Callicebus,ear length to notch,1
 Callicebus,pes length,1
 Callicebus,tail length,1
-Callicebus Thomas,,body length,1
-Callicebus Thomas,,ear length to notch,1
-Callicebus Thomas,,pes length,1
-Callicebus Thomas,,tail length,1
+Callicebus Thomas,body length,1
+Callicebus Thomas,ear length to notch,1
+Callicebus Thomas,pes length,1
+Callicebus Thomas,tail length,1
 Callicebus cupreus,body length,2
 Callicebus cupreus,body mass,1
 Callicebus cupreus,ear length to notch,1
@@ -1706,10 +1703,10 @@ Cercopithecus,body length,16
 Cercopithecus,ear length to notch,1
 Cercopithecus,pes length,1
 Cercopithecus,tail length,1
-Cercopithecus Linnaeus,,body length,1
-Cercopithecus Linnaeus,,ear length to notch,1
-Cercopithecus Linnaeus,,pes length,1
-Cercopithecus Linnaeus,,tail length,1
+Cercopithecus Linnaeus,body length,1
+Cercopithecus Linnaeus,ear length to notch,1
+Cercopithecus Linnaeus,pes length,1
+Cercopithecus Linnaeus,tail length,1
 Cercopithecus aethiops,body length,11
 Cercopithecus aethiops,body mass,1
 Cercopithecus aethiops,ear length to notch,3
@@ -2243,15 +2240,6 @@ Connochaetes taurinus,body mass,2
 Connochaetes taurinus,ear length to notch,3
 Connochaetes taurinus,pes length,3
 Connochaetes taurinus,tail length,2
-Cormohipparion,breadth of the trochlea of talus,1
-Cormohipparion,depth of the medial side of talus,1
-Cormohipparion,length of the medial side of talus,1
-Cormohipparion africanum,breadth of the trochlea of talus,4
-Cormohipparion africanum,depth of the medial side of talus,4
-Cormohipparion africanum,length of the medial side of talus,4
-Cormohipparion sinapensis,breadth of the trochlea of talus,1
-Cormohipparion sinapensis,depth of the medial side of talus,1
-Cormohipparion sinapensis,length of the medial side of talus,1
 Crateromys heaneyi,body length,1
 Crateromys heaneyi,body mass,1
 Crateromys heaneyi,ear length to notch,1
@@ -2300,21 +2288,6 @@ Cratogeomys zinseri,body length,3
 Cratogeomys zinseri,ear length to notch,3
 Cratogeomys zinseri,pes length,3
 Cratogeomys zinseri,tail length,3
-Cremohipparion antelopinum,breadth of the trochlea of talus,6
-Cremohipparion antelopinum,depth of the medial side of talus,6
-Cremohipparion antelopinum,length of the medial side of talus,6
-Cremohipparion matthewi,breadth of the trochlea of talus,6
-Cremohipparion matthewi,depth of the medial side of talus,6
-Cremohipparion matthewi,length of the medial side of talus,6
-Cremohipparion mediterraneum,breadth of the trochlea of talus,4
-Cremohipparion mediterraneum,depth of the medial side of talus,4
-Cremohipparion mediterraneum,length of the medial side of talus,4
-Cremohipparion nikosi,breadth of the trochlea of talus,1
-Cremohipparion nikosi,depth of the medial side of talus,1
-Cremohipparion nikosi,length of the medial side of talus,1
-Cremohipparion periafricanum,breadth of the trochlea of talus,1
-Cremohipparion periafricanum,depth of the medial side of talus,1
-Cremohipparion periafricanum,length of the medial side of talus,1
 Cricetidae,body length,48
 Cricetidae,body mass,25
 Cricetidae,ear length to notch,19
@@ -2374,11 +2347,11 @@ Crocidura,ear length to notch,31
 Crocidura,pes length,33
 Crocidura,tail length,31
 Crocidura (Wagler,body length,1
-Crocidura Wagler,,body length,1
-Crocidura Wagler,,body mass,13
-Crocidura Wagler,,ear length to notch,1
-Crocidura Wagler,,pes length,1
-Crocidura Wagler,,tail length,1
+Crocidura Wagler,body length,1
+Crocidura Wagler,body mass,13
+Crocidura Wagler,ear length to notch,1
+Crocidura Wagler,pes length,1
+Crocidura Wagler,tail length,1
 Crocidura attenuata,body length,57
 Crocidura attenuata,body mass,1
 Crocidura attenuata,ear length to notch,1
@@ -2581,9 +2554,9 @@ Cryptotis,body length,63
 Cryptotis,body mass,55
 Cryptotis,pes length,2
 Cryptotis,tail length,2
-Cryptotis Pomel,,body length,1
-Cryptotis Pomel,,pes length,1
-Cryptotis Pomel,,tail length,1
+Cryptotis Pomel,body length,1
+Cryptotis Pomel,pes length,1
+Cryptotis Pomel,tail length,1
 Cryptotis alticola,body length,8
 Cryptotis alticola,body mass,1
 Cryptotis alticola,ear length to notch,7
@@ -2902,8 +2875,8 @@ Damaliscus lunatus,tail length,1
 Damaliscus pygargus,body length,1
 Dasycercus blythi,body length,1
 Dasycercus cristicauda,body length,2
-Dasymys Peters,,body mass,3
-Dasymys Peters,,tail length,2
+Dasymys Peters,body mass,3
+Dasymys Peters,tail length,2
 Dasymys incomptus,body length,3
 Dasymys incomptus,ear length to notch,3
 Dasymys incomptus,pes length,2
@@ -2952,10 +2925,10 @@ Dasyprocta variegata,tail length,3
 Dasypus,body length,4
 Dasypus,ear length to notch,1
 Dasypus,tail length,1
-Dasypus Linnaeus,,body length,1
-Dasypus Linnaeus,,ear length to notch,1
-Dasypus Linnaeus,,pes length,1
-Dasypus Linnaeus,,tail length,1
+Dasypus Linnaeus,body length,1
+Dasypus Linnaeus,ear length to notch,1
+Dasypus Linnaeus,pes length,1
+Dasypus Linnaeus,tail length,1
 Dasypus hybridus,body length,1
 Dasypus novemcinctus,body length,145
 Dasypus novemcinctus,body mass,59
@@ -3010,8 +2983,8 @@ Delphinapterus leucas,tail length,5
 Delphinidae,body length,2
 Delphinidae,tail length,5
 Delphinus,body length,1
-Delphinus Linnaeus,,body length,5
-Delphinus Linnaeus,,body mass,1
+Delphinus Linnaeus,body length,5
+Delphinus Linnaeus,body mass,1
 Delphinus capensis,body length,401
 Delphinus capensis,body mass,223
 Delphinus delphis,body length,781
@@ -3072,8 +3045,8 @@ Dendromus,body mass,1
 Dendromus,ear length to notch,1
 Dendromus,pes length,1
 Dendromus,tail length,1
-Dendromus Smith,,body mass,1
-Dendromus Smith,,tail length,1
+Dendromus Smith,body mass,1
+Dendromus Smith,tail length,1
 Dendromus melanotis,body length,7
 Dendromus melanotis,body mass,5
 Dendromus melanotis,ear length to notch,7
@@ -3179,10 +3152,10 @@ Didelphis,body mass,5
 Didelphis,ear length to notch,7
 Didelphis,pes length,7
 Didelphis,tail length,8
-Didelphis Linnaeus,,body length,1
-Didelphis Linnaeus,,ear length to notch,1
-Didelphis Linnaeus,,pes length,1
-Didelphis Linnaeus,,tail length,1
+Didelphis Linnaeus,body length,1
+Didelphis Linnaeus,ear length to notch,1
+Didelphis Linnaeus,pes length,1
+Didelphis Linnaeus,tail length,1
 Didelphis albiventris,body length,76
 Didelphis albiventris,body mass,28
 Didelphis albiventris,ear length to notch,40
@@ -3240,11 +3213,11 @@ Dipodomys .,body length,3
 Dipodomys .,ear length to notch,2
 Dipodomys .,pes length,3
 Dipodomys .,tail length,3
-Dipodomys Gray,,body length,1
-Dipodomys Gray,,body mass,1
-Dipodomys Gray,,ear length to notch,1
-Dipodomys Gray,,pes length,1
-Dipodomys Gray,,tail length,1
+Dipodomys Gray,body length,1
+Dipodomys Gray,body mass,1
+Dipodomys Gray,ear length to notch,1
+Dipodomys Gray,pes length,1
+Dipodomys Gray,tail length,1
 Dipodomys agilis,body length,1662
 Dipodomys agilis,body mass,843
 Dipodomys agilis,ear length to notch,1525
@@ -3654,24 +3627,15 @@ Episoriculus caudatus,body mass,1
 Episoriculus caudatus,ear length to notch,1
 Episoriculus caudatus,pes length,1
 Episoriculus caudatus,tail length,1
-Equoidea Gray,,ear length to notch,2
+Equoidea Gray,ear length to notch,2
 Equus,body length,10
-Equus,breadth of the trochlea of talus,114
-Equus,depth of the medial side of talus,99
-Equus,length of the medial side of talus,113
 Equus,tail length,1
 Equus Linnaeus,body length,4
 Equus asinus,body length,6
-Equus asinus,breadth of the trochlea of talus,1
-Equus asinus,depth of the medial side of talus,1
-Equus asinus,length of the medial side of talus,1
 Equus burchelli,body length,1
 Equus burchelli,body mass,1
 Equus burchellii,body length,13
-Equus burchellii,breadth of the trochlea of talus,1
-Equus burchellii,depth of the medial side of talus,1
 Equus burchellii,ear length to notch,2
-Equus burchellii,length of the medial side of talus,1
 Equus burchellii,pes length,2
 Equus burchellii,tail length,2
 Equus caballus,body length,39
@@ -3681,72 +3645,22 @@ Equus caballus,pes length,2
 Equus caballus,tail length,3
 Equus calobatus,body length,2
 Equus conversidens,body length,2
-Equus conversidens,breadth of the trochlea of talus,1
-Equus conversidens,depth of the medial side of talus,1
-Equus eisenmannae,breadth of the trochlea of talus,1
-Equus eisenmannae,depth of the medial side of talus,1
-Equus eisenmannae,length of the medial side of talus,1
 Equus ferus,body length,1
 Equus grevyi,body length,10
 Equus grevyi,body mass,1
-Equus grevyi,breadth of the trochlea of talus,17
-Equus grevyi,depth of the medial side of talus,17
 Equus grevyi,ear length to notch,2
-Equus grevyi,femur length to greater trochanter,3
-Equus grevyi,femur length to head of femur,4
-Equus grevyi,humerus length to caput of humerus,4
-Equus grevyi,humerus length to ventral tubercle,3
-Equus grevyi,length of the medial side of talus,17
 Equus grevyi,pes length,2
 Equus grevyi,tail length,2
 Equus hemionus,body length,3
-Equus hemionus,breadth of the trochlea of talus,2
-Equus hemionus,depth of the medial side of talus,2
-Equus hemionus,length of the medial side of talus,2
 Equus kiang,body length,1
-Equus kiang,breadth of the trochlea of talus,4
-Equus kiang,depth of the medial side of talus,4
-Equus kiang,length of the medial side of talus,4
-Equus livenzoensis,breadth of the trochlea of talus,4
-Equus livenzoensis,depth of the medial side of talus,4
-Equus livenzoensis,length of the medial side of talus,4
-Equus major/bressanus,breadth of the trochlea of talus,2
-Equus major/bressanus,depth of the medial side of talus,2
-Equus major/bressanus,length of the medial side of talus,2
 Equus occidentalis,body length,2
-Equus occidentalis,breadth of the trochlea of talus,10
-Equus occidentalis,depth of the medial side of talus,10
-Equus occidentalis,length of the medial side of talus,10
 Equus onager,body length,1
 Equus przewalskii,body length,2
 Equus quagga,body length,12
-Equus quagga,breadth of the trochlea of talus,13
-Equus quagga,depth of the medial side of talus,13
-Equus quagga,femur length to greater trochanter,2
-Equus quagga,femur length to head of femur,2
-Equus quagga,humerus length to caput of humerus,2
-Equus quagga,humerus length to ventral tubercle,1
-Equus quagga,length of the medial side of talus,12
 Equus scotti,body length,1
-Equus simplicidens,breadth of the trochlea of talus,16
-Equus simplicidens,depth of the medial side of talus,13
-Equus simplicidens,femur length to greater trochanter,3
-Equus simplicidens,femur length to head of femur,3
-Equus simplicidens,humerus length to caput of humerus,3
-Equus simplicidens,humerus length to ventral tubercle,3
-Equus simplicidens,length of the medial side of talus,16
-Equus stehlini,breadth of the trochlea of talus,1
-Equus stehlini,depth of the medial side of talus,1
-Equus stehlini,length of the medial side of talus,1
-Equus stenonis,breadth of the trochlea of talus,24
-Equus stenonis,depth of the medial side of talus,23
-Equus stenonis,length of the medial side of talus,24
 Equus zebra,body length,8
 Equus zebra,body mass,1
-Equus zebra,breadth of the trochlea of talus,1
-Equus zebra,depth of the medial side of talus,1
 Equus zebra,ear length to notch,2
-Equus zebra,length of the medial side of talus,1
 Equus zebra,pes length,2
 Equus zebra,tail length,3
 Eremitalpa granti,body mass,1
@@ -3854,37 +3768,6 @@ Euphractus sexcinctus,pes length,6
 Euphractus sexcinctus,tail length,8
 Eupleres goudotii,body length,2
 Euroscaptor longirostris,body length,4
-Eurygnathohippus,breadth of the trochlea of talus,48
-Eurygnathohippus,depth of the medial side of talus,34
-Eurygnathohippus,femur length to greater trochanter,1
-Eurygnathohippus,femur length to head of femur,2
-Eurygnathohippus,length of the medial side of talus,46
-Eurygnathohippus cornelianus,breadth of the trochlea of talus,2
-Eurygnathohippus cornelianus,depth of the medial side of talus,2
-Eurygnathohippus cornelianus,length of the medial side of talus,2
-Eurygnathohippus feibeli,breadth of the trochlea of talus,18
-Eurygnathohippus feibeli,depth of the medial side of talus,16
-Eurygnathohippus feibeli,length of the medial side of talus,16
-Eurygnathohippus hasumense,breadth of the trochlea of talus,26
-Eurygnathohippus hasumense,depth of the medial side of talus,22
-Eurygnathohippus hasumense,humerus length to caput of humerus,1
-Eurygnathohippus hasumense,length of the medial side of talus,23
-Eurygnathohippus hooijeri,breadth of the trochlea of talus,16
-Eurygnathohippus hooijeri,depth of the medial side of talus,13
-Eurygnathohippus hooijeri,femur length to greater trochanter,2
-Eurygnathohippus hooijeri,femur length to head of femur,2
-Eurygnathohippus hooijeri,humerus length to caput of humerus,1
-Eurygnathohippus hooijeri,humerus length to ventral tubercle,1
-Eurygnathohippus hooijeri,length of the medial side of talus,13
-Eurygnathohippus lg.,breadth of the trochlea of talus,3
-Eurygnathohippus lg.,depth of the medial side of talus,2
-Eurygnathohippus lg.,length of the medial side of talus,3
-Eurygnathohippus pomeli,breadth of the trochlea of talus,1
-Eurygnathohippus pomeli,depth of the medial side of talus,1
-Eurygnathohippus pomeli,length of the medial side of talus,1
-Eurygnathohippus woldegabrieli,breadth of the trochlea of talus,7
-Eurygnathohippus woldegabrieli,depth of the medial side of talus,5
-Eurygnathohippus woldegabrieli,length of the medial side of talus,5
 Euryoryzomys legatus,body length,33
 Euryoryzomys legatus,body mass,32
 Euryoryzomys legatus,ear length to notch,33
@@ -4061,8 +3944,8 @@ Funambulus pennantii,body length,6
 Funambulus pennantii,ear length to notch,6
 Funambulus pennantii,pes length,1
 Funambulus pennantii,tail length,6
-Funisciurus Trouessart,,body mass,3
-Funisciurus Trouessart,,tail length,1
+Funisciurus Trouessart,body mass,3
+Funisciurus Trouessart,tail length,1
 Funisciurus anerythrus,body length,1
 Funisciurus anerythrus,ear length to notch,1
 Funisciurus anerythrus,pes length,1
@@ -4455,8 +4338,8 @@ Grammomys,body mass,3
 Grammomys,ear length to notch,4
 Grammomys,pes length,5
 Grammomys,tail length,5
-Grammomys Thomas,,body mass,16
-Grammomys Thomas,,tail length,5
+Grammomys Thomas,body mass,16
+Grammomys Thomas,tail length,5
 Grammomys dolichurus,body length,14
 Grammomys dolichurus,body mass,7
 Grammomys dolichurus,ear length to notch,8
@@ -4494,8 +4377,8 @@ Graphiurus,body mass,4
 Graphiurus,ear length to notch,1
 Graphiurus,pes length,1
 Graphiurus,tail length,7
-Graphiurus Smuts,,body mass,1
-Graphiurus Smuts,,tail length,1
+Graphiurus Smuts,body mass,1
+Graphiurus Smuts,tail length,1
 Graphiurus christyi,body length,8
 Graphiurus christyi,body mass,1
 Graphiurus christyi,ear length to notch,1
@@ -4649,10 +4532,10 @@ Herpestes,body mass,1
 Herpestes,ear length to notch,2
 Herpestes,pes length,2
 Herpestes,tail length,1
-Herpestes Illiger,,body length,1
-Herpestes Illiger,,ear length to notch,1
-Herpestes Illiger,,pes length,1
-Herpestes Illiger,,tail length,1
+Herpestes Illiger,body length,1
+Herpestes Illiger,ear length to notch,1
+Herpestes Illiger,pes length,1
+Herpestes Illiger,tail length,1
 Herpestes auropunctatus,body length,9
 Herpestes auropunctatus,body mass,7
 Herpestes auropunctatus,ear length to notch,8
@@ -4763,17 +4646,6 @@ Heteromys teleus,tail length,1
 Heterosorex Gaillard,body length,1
 Heteroxerus Stehlin,body length,2
 Hexaprotodon liberiensis,body length,1
-Hipparion,breadth of the trochlea of talus,144
-Hipparion,depth of the medial side of talus,120
-Hipparion,humerus length to caput of humerus,1
-Hipparion,humerus length to ventral tubercle,1
-Hipparion,length of the medial side of talus,137
-Hipparion prostylum,breadth of the trochlea of talus,31
-Hipparion prostylum,depth of the medial side of talus,26
-Hipparion prostylum,length of the medial side of talus,24
-Hipparion sm.,breadth of the trochlea of talus,5
-Hipparion sm.,depth of the medial side of talus,5
-Hipparion sm.,length of the medial side of talus,5
 Hippocamelus antisensis,body length,6
 Hippocamelus antisensis,ear length to notch,4
 Hippocamelus antisensis,pes length,4
@@ -4783,44 +4655,6 @@ Hippopotamus,body length,5
 Hippopotamus amphibius,body length,10
 Hippopotamus amphibius,body mass,1
 Hippopotamus amphibius,ear length to notch,1
-Hippotherium,breadth of the trochlea of talus,2
-Hippotherium,depth of the medial side of talus,2
-Hippotherium,humerus length to caput of humerus,1
-Hippotherium,humerus length to ventral tubercle,1
-Hippotherium,length of the medial side of talus,2
-Hippotherium brachypus,breadth of the trochlea of talus,3
-Hippotherium brachypus,depth of the medial side of talus,3
-Hippotherium brachypus,humerus length to caput of humerus,1
-Hippotherium brachypus,length of the medial side of talus,3
-Hippotherium csakvarense,breadth of the trochlea of talus,31
-Hippotherium csakvarense,depth of the medial side of talus,26
-Hippotherium csakvarense,length of the medial side of talus,30
-Hippotherium giganteum,femur length to greater trochanter,1
-Hippotherium giganteum,femur length to head of femur,1
-Hippotherium intrans,breadth of the trochlea of talus,17
-Hippotherium intrans,depth of the medial side of talus,15
-Hippotherium intrans,length of the medial side of talus,16
-Hippotherium malpassii,breadth of the trochlea of talus,3
-Hippotherium malpassii,length of the medial side of talus,3
-Hippotherium microdon,breadth of the trochlea of talus,15
-Hippotherium microdon,depth of the medial side of talus,14
-Hippotherium microdon,length of the medial side of talus,11
-Hippotherium primigeneium,breadth of the trochlea of talus,58
-Hippotherium primigeneium,depth of the medial side of talus,52
-Hippotherium primigeneium,femur length to greater trochanter,9
-Hippotherium primigeneium,femur length to head of femur,9
-Hippotherium primigeneium,humerus length to caput of humerus,9
-Hippotherium primigeneium,humerus length to ventral tubercle,9
-Hippotherium primigeneium,length of the medial side of talus,58
-Hippotherium primigenium,breadth of the trochlea of talus,10
-Hippotherium primigenium,depth of the medial side of talus,10
-Hippotherium primigenium,length of the medial side of talus,10
-Hippotherium sm.,breadth of the trochlea of talus,1
-Hippotherium sm.,depth of the medial side of talus,1
-Hippotherium sm.,length of the medial side of talus,2
-Hippotherium sumegense,breadth of the trochlea of talus,5
-Hippotherium sumegense,depth of the medial side of talus,4
-Hippotherium sumegense,length of the medial side of talus,3
 Hippotragus equinus,body length,10
 Hippotragus niger,body length,8
 Hippotragus niger,ear length to notch,1
@@ -4963,9 +4797,9 @@ Hylomyscus,body mass,1
 Hylomyscus,ear length to notch,1
 Hylomyscus,pes length,1
 Hylomyscus,tail length,1
-Hylomyscus Thomas,,body length,1
-Hylomyscus Thomas,,body mass,53
-Hylomyscus Thomas,,tail length,23
+Hylomyscus Thomas,body length,1
+Hylomyscus Thomas,body mass,53
+Hylomyscus Thomas,tail length,23
 Hylomyscus alleni,body length,2
 Hylomyscus alleni,body mass,2
 Hylomyscus alleni,ear length to notch,1
@@ -5230,8 +5064,8 @@ Lemmus trimucronatus,ear length to notch,863
 Lemmus trimucronatus,pes length,2039
 Lemmus trimucronatus,tail length,1833
 Lemniscomys,body length,1
-Lemniscomys Trouessart,,body mass,7
-Lemniscomys Trouessart,,tail length,7
+Lemniscomys Trouessart,body mass,7
+Lemniscomys Trouessart,tail length,7
 Lemniscomys barbarus,body length,30
 Lemniscomys barbarus,body mass,6
 Lemniscomys barbarus,ear length to notch,30
@@ -5337,12 +5171,11 @@ Lepus,body mass,4
 Lepus,ear length to notch,8
 Lepus,pes length,21
 Lepus,tail length,18
-Lepus Linnaeus,body length,1
-Lepus Linnaeus,,body length,1
-Lepus Linnaeus,,body mass,1
-Lepus Linnaeus,,ear length to notch,1
-Lepus Linnaeus,,pes length,1
-Lepus Linnaeus,,tail length,1
+Lepus Linnaeus,body length,2
+Lepus Linnaeus,body mass,1
+Lepus Linnaeus,ear length to notch,1
+Lepus Linnaeus,pes length,1
+Lepus Linnaeus,tail length,1
 Lepus alleni,body length,69
 Lepus alleni,body mass,29
 Lepus alleni,ear length to notch,66
@@ -5435,10 +5268,10 @@ Lepus washingtoni,pes length,7
 Lepus washingtoni,tail length,7
 Limnogale mergulus,body length,2
 Limnotragus kii,body length,2
-Liomys Merriam,,body length,1
-Liomys Merriam,,ear length to notch,1
-Liomys Merriam,,pes length,1
-Liomys Merriam,,tail length,1
+Liomys Merriam,body length,1
+Liomys Merriam,ear length to notch,1
+Liomys Merriam,pes length,1
+Liomys Merriam,tail length,1
 Liomys adrsus,body length,443
 Liomys adrsus,body mass,439
 Liomys adrsus,ear length to notch,442
@@ -5500,8 +5333,8 @@ Lophuromys,body mass,2
 Lophuromys,ear length to notch,2
 Lophuromys,pes length,2
 Lophuromys,tail length,2
-Lophuromys Peters,,body mass,32
-Lophuromys Peters,,tail length,19
+Lophuromys Peters,body mass,32
+Lophuromys Peters,tail length,19
 Lophuromys aquilus,body length,8
 Lophuromys aquilus,body mass,1
 Lophuromys aquilus,ear length to notch,2
@@ -5752,8 +5585,8 @@ Makalata rhipidura,body mass,1
 Makalata rhipidura,ear length to notch,1
 Makalata rhipidura,pes length,1
 Makalata rhipidura,tail length,1
-Malacomys Milne-Edwards,,body mass,7
-Malacomys Milne-Edwards,,tail length,7
+Malacomys Milne-Edwards,body mass,7
+Malacomys Milne-Edwards,tail length,7
 Malacothrix,body length,1
 Malacothrix typica,body length,1
 Malacothrix typica,ear length to notch,1
@@ -5786,10 +5619,10 @@ Manis,body mass,3
 Manis,ear length to notch,1
 Manis,pes length,4
 Manis,tail length,5
-Manis Linnaeus,,body length,1
-Manis Linnaeus,,ear length to notch,1
-Manis Linnaeus,,pes length,1
-Manis Linnaeus,,tail length,1
+Manis Linnaeus,body length,1
+Manis Linnaeus,ear length to notch,1
+Manis Linnaeus,pes length,1
+Manis Linnaeus,tail length,1
 Manis crassicaudata,body length,1
 Manis gigantea,body length,1
 Manis gigantea,pes length,1
@@ -6097,11 +5930,11 @@ Mazama,body length,3
 Mazama,body mass,2
 Mazama,ear length to notch,2
 Mazama,tail length,2
-Mazama Rafinesque,,body length,3
-Mazama Rafinesque,,body mass,2
-Mazama Rafinesque,,ear length to notch,3
-Mazama Rafinesque,,pes length,3
-Mazama Rafinesque,,tail length,3
+Mazama Rafinesque,body length,3
+Mazama Rafinesque,body mass,2
+Mazama Rafinesque,ear length to notch,3
+Mazama Rafinesque,pes length,3
+Mazama Rafinesque,tail length,3
 Mazama americana,body length,12
 Mazama americana,body mass,1
 Mazama americana,ear length to notch,4
@@ -6944,11 +6777,11 @@ Mus,body mass,186
 Mus,ear length to notch,330
 Mus,pes length,341
 Mus,tail length,346
-Mus Linnaeus,,body length,2
-Mus Linnaeus,,body mass,7
-Mus Linnaeus,,ear length to notch,2
-Mus Linnaeus,,pes length,2
-Mus Linnaeus,,tail length,2
+Mus Linnaeus,body length,2
+Mus Linnaeus,body mass,7
+Mus Linnaeus,ear length to notch,2
+Mus Linnaeus,pes length,2
+Mus Linnaeus,tail length,2
 Mus bactrianus,body length,2
 Mus bactrianus,ear length to notch,2
 Mus bactrianus,pes length,2
@@ -7868,22 +7701,21 @@ Odobenus rosmarus,tail length,2
 Odocoileus,body length,4
 Odocoileus,pes length,1
 Odocoileus,tail length,1
-Odocoileus Rafinesque,,body length,3
-Odocoileus Rafinesque,,body mass,1
-Odocoileus Rafinesque,,ear length to notch,3
-Odocoileus Rafinesque,,pes length,3
-Odocoileus Rafinesque,,tail length,3
+Odocoileus Rafinesque,body length,3
+Odocoileus Rafinesque,body mass,1
+Odocoileus Rafinesque,ear length to notch,3
+Odocoileus Rafinesque,pes length,3
+Odocoileus Rafinesque,tail length,3
 Odocoileus hemionus,body length,201
 Odocoileus hemionus,body mass,152
 Odocoileus hemionus,ear length to notch,92
 Odocoileus hemionus,pes length,130
 Odocoileus hemionus,tail length,125
-Odocoileus virginianus,body height,1
-Odocoileus virginianus,body length,2798
-Odocoileus virginianus,body mass,1809
+Odocoileus virginianus,body length,2129
+Odocoileus virginianus,body mass,901
 Odocoileus virginianus,ear length to notch,778
-Odocoileus virginianus,pes length,1292
-Odocoileus virginianus,tail length,1302
+Odocoileus virginianus,pes length,790
+Odocoileus virginianus,tail length,804
 Oecomys,body length,7
 Oecomys,body mass,6
 Oecomys,ear length to notch,7
@@ -8148,10 +7980,10 @@ Oryzomys,body mass,97
 Oryzomys,ear length to notch,117
 Oryzomys,pes length,115
 Oryzomys,tail length,117
-Oryzomys Baird,,body length,7
-Oryzomys Baird,,ear length to notch,7
-Oryzomys Baird,,pes length,7
-Oryzomys Baird,,tail length,7
+Oryzomys Baird,body length,7
+Oryzomys Baird,ear length to notch,7
+Oryzomys Baird,pes length,7
+Oryzomys Baird,tail length,7
 Oryzomys albigularis,body length,56
 Oryzomys albigularis,body mass,44
 Oryzomys albigularis,ear length to notch,49
@@ -8864,11 +8696,11 @@ Peromyscus .,body length,10
 Peromyscus .,ear length to notch,8
 Peromyscus .,pes length,9
 Peromyscus .,tail length,10
-Peromyscus Gloger,,body length,41
-Peromyscus Gloger,,body mass,7
-Peromyscus Gloger,,ear length to notch,42
-Peromyscus Gloger,,pes length,41
-Peromyscus Gloger,,tail length,54
+Peromyscus Gloger,body length,41
+Peromyscus Gloger,body mass,7
+Peromyscus Gloger,ear length to notch,42
+Peromyscus Gloger,pes length,41
+Peromyscus Gloger,tail length,54
 Peromyscus attwateri,body length,1289
 Peromyscus attwateri,body mass,457
 Peromyscus attwateri,ear length to notch,1173
@@ -9547,9 +9379,6 @@ Plesiadapis praecursor,body length,1
 Plesiadapis rex,body length,2
 Plesiadapis simonsi,body length,1
 Plesiadapis walbeckensis,tail length,1
-Plesiohipparion longipes,breadth of the trochlea of talus,2
-Plesiohipparion longipes,depth of the medial side of talus,2
-Plesiohipparion longipes,length of the medial side of talus,2
 Plesiosminthus schaubi,body length,1
 Pliomys Méhely,body length,1
 Pliomys Méhely,body mass,5
@@ -9602,10 +9431,10 @@ Potamochoerus porcus,ear length to notch,3
 Potamochoerus porcus,pes length,3
 Potamochoerus porcus,tail length,2
 Potamogale velox,body length,6
-Potorous Desmarest,,body length,1
-Potorous Desmarest,,ear length to notch,1
-Potorous Desmarest,,pes length,1
-Potorous Desmarest,,tail length,1
+Potorous Desmarest,body length,1
+Potorous Desmarest,ear length to notch,1
+Potorous Desmarest,pes length,1
+Potorous Desmarest,tail length,1
 Potorous tridactylus,body length,12
 Potorous tridactylus,body mass,5
 Potorous tridactylus,ear length to notch,5
@@ -9621,8 +9450,8 @@ Praomys,body mass,3
 Praomys,ear length to notch,3
 Praomys,pes length,3
 Praomys,tail length,3
-Praomys Thomas,,body mass,23
-Praomys Thomas,,tail length,15
+Praomys Thomas,body mass,23
+Praomys Thomas,tail length,15
 Praomys daltoni,body length,4
 Praomys daltoni,ear length to notch,4
 Praomys daltoni,pes length,4
@@ -9644,10 +9473,10 @@ Presbytis,body length,9
 Presbytis,ear length to notch,1
 Presbytis,pes length,3
 Presbytis,tail length,3
-Presbytis Eschscholtz,,body length,1
-Presbytis Eschscholtz,,ear length to notch,1
-Presbytis Eschscholtz,,pes length,1
-Presbytis Eschscholtz,,tail length,1
+Presbytis Eschscholtz,body length,1
+Presbytis Eschscholtz,ear length to notch,1
+Presbytis Eschscholtz,pes length,1
+Presbytis Eschscholtz,tail length,1
 Presbytis cristata,body length,58
 Presbytis cristata,body mass,56
 Presbytis cristata,ear length to notch,58
@@ -9696,9 +9525,6 @@ Prionailurus viverrinus,body mass,1
 Prionailurus viverrinus,ear length to notch,1
 Prionailurus viverrinus,pes length,1
 Prionailurus viverrinus,tail length,1
-Proboscidipparion heintzi,breadth of the trochlea of talus,4
-Proboscidipparion heintzi,depth of the medial side of talus,3
-Proboscidipparion heintzi,length of the medial side of talus,4
 Procamptoceras Schaub,body length,1
 Procapra gutturosa,body length,4
 Procapra picticaudata,body length,1
@@ -9945,8 +9771,8 @@ Pudu puda,body mass,4
 Pudu puda,ear length to notch,4
 Pudu puda,pes length,4
 Pudu puda,tail length,4
-Puma concolor,body length,7516
-Puma concolor,body mass,5976
+Puma concolor,body length,167
+Puma concolor,body mass,117
 Puma concolor,ear length to notch,93
 Puma concolor,pes length,109
 Puma concolor,tail length,115
@@ -9994,12 +9820,11 @@ Rattus,body mass,130
 Rattus,ear length to notch,144
 Rattus,pes length,146
 Rattus,tail length,137
-Rattus Fischer,body length,2
-Rattus Fischer,,body length,2
-Rattus Fischer,,body mass,1
-Rattus Fischer,,ear length to notch,2
-Rattus Fischer,,pes length,2
-Rattus Fischer,,tail length,2
+Rattus Fischer,body length,4
+Rattus Fischer,body mass,1
+Rattus Fischer,ear length to notch,2
+Rattus Fischer,pes length,2
+Rattus Fischer,tail length,2
 Rattus andamanensis,body length,1
 Rattus andamanensis,body mass,1
 Rattus andamanensis,ear length to notch,1
@@ -10162,11 +9987,11 @@ Reithrodontomys,body mass,414
 Reithrodontomys,ear length to notch,794
 Reithrodontomys,pes length,822
 Reithrodontomys,tail length,814
-Reithrodontomys Giglioli,,body length,4
-Reithrodontomys Giglioli,,body mass,3
-Reithrodontomys Giglioli,,ear length to notch,5
-Reithrodontomys Giglioli,,pes length,4
-Reithrodontomys Giglioli,,tail length,25
+Reithrodontomys Giglioli,body length,4
+Reithrodontomys Giglioli,body mass,3
+Reithrodontomys Giglioli,ear length to notch,5
+Reithrodontomys Giglioli,pes length,4
+Reithrodontomys Giglioli,tail length,25
 Reithrodontomys australis,body length,2
 Reithrodontomys australis,ear length to notch,2
 Reithrodontomys australis,pes length,2
@@ -10294,7 +10119,7 @@ Rhinoceros unicornis,ear length to notch,1
 Rhinoceros unicornis,pes length,1
 Rhinoceros unicornis,tail length,1
 Rhinocerotidae,body length,2
-Rhinocerotidae Owen,,body length,1
+Rhinocerotidae Owen,body length,1
 Rhipidomys,body length,4
 Rhipidomys,body mass,3
 Rhipidomys,ear length to notch,3
@@ -10537,10 +10362,10 @@ Sciurus,body mass,30
 Sciurus,ear length to notch,424
 Sciurus,pes length,527
 Sciurus,tail length,539
-Sciurus Linnaeus,,body length,3
-Sciurus Linnaeus,,ear length to notch,3
-Sciurus Linnaeus,,pes length,3
-Sciurus Linnaeus,,tail length,3
+Sciurus Linnaeus,body length,3
+Sciurus Linnaeus,ear length to notch,3
+Sciurus Linnaeus,pes length,3
+Sciurus Linnaeus,tail length,3
 Sciurus aberti,body length,302
 Sciurus aberti,body mass,133
 Sciurus aberti,ear length to notch,210
@@ -10670,11 +10495,11 @@ Scotinomys,body mass,4
 Scotinomys,ear length to notch,4
 Scotinomys,pes length,4
 Scotinomys,tail length,4
-Scotinomys Thomas,,body length,4
-Scotinomys Thomas,,body mass,1
-Scotinomys Thomas,,ear length to notch,4
-Scotinomys Thomas,,pes length,4
-Scotinomys Thomas,,tail length,4
+Scotinomys Thomas,body length,4
+Scotinomys Thomas,body mass,1
+Scotinomys Thomas,ear length to notch,4
+Scotinomys Thomas,pes length,4
+Scotinomys Thomas,tail length,4
 Scotinomys teguina,body length,216
 Scotinomys teguina,body mass,192
 Scotinomys teguina,ear length to notch,213
@@ -10796,26 +10621,6 @@ Sigmodontomys alfari,ear length to notch,2
 Sigmodontomys alfari,pes length,2
 Sigmodontomys alfari,tail length,2
 Sinomastodon Tobien,body length,1
-Sivalhippus,breadth of the trochlea of talus,3
-Sivalhippus,depth of the medial side of talus,3
-Sivalhippus,length of the medial side of talus,3
-Sivalhippus anwari,breadth of the trochlea of talus,1
-Sivalhippus anwari,depth of the medial side of talus,1
-Sivalhippus anwari,length of the medial side of talus,1
-Sivalhippus nagriensis,breadth of the trochlea of talus,22
-Sivalhippus nagriensis,depth of the medial side of talus,17
-Sivalhippus nagriensis,length of the medial side of talus,21
-Sivalhippus perimense,breadth of the trochlea of talus,8
-Sivalhippus perimense,depth of the medial side of talus,7
-Sivalhippus perimense,length of the medial side of talus,8
-Sivalhippus theobaldi,breadth of the trochlea of talus,1
-Sivalhippus theobaldi,depth of the medial side of talus,1
-Sivalhippus theobaldi,length of the medial side of talus,1
-Sivalhippus turkanensis,breadth of the trochlea of talus,8
-Sivalhippus turkanensis,depth of the medial side of talus,8
-Sivalhippus turkanensis,femur length to greater trochanter,1
-Sivalhippus turkanensis,femur length to head of femur,1
-Sivalhippus turkanensis,length of the medial side of talus,6
 Smilodon fatalis,body length,1
 Sminthopsis aitkeni,body length,2
 Sminthopsis crassicaudata,body length,21
@@ -10854,13 +10659,11 @@ Sorex .,body length,1
 Sorex .,ear length to notch,1
 Sorex .,pes length,1
 Sorex .,tail length,1
-Sorex Linnaeus,body length,2
-Sorex Linnaeus,body mass,2
-Sorex Linnaeus,,body length,16
-Sorex Linnaeus,,body mass,7
-Sorex Linnaeus,,ear length to notch,16
-Sorex Linnaeus,,pes length,16
-Sorex Linnaeus,,tail length,16
+Sorex Linnaeus,body length,18
+Sorex Linnaeus,body mass,9
+Sorex Linnaeus,ear length to notch,16
+Sorex Linnaeus,pes length,16
+Sorex Linnaeus,tail length,16
 Sorex aberti,body length,1
 Sorex aberti,ear length to notch,1
 Sorex aberti,tail length,1
@@ -11205,11 +11008,11 @@ Spermophilus atricapillus,body mass,3
 Spermophilus atricapillus,ear length to notch,3
 Spermophilus atricapillus,pes length,3
 Spermophilus atricapillus,tail length,3
-Spermophilus beecheyi,body length,533
-Spermophilus beecheyi,body mass,234
+Spermophilus beecheyi,body length,374
+Spermophilus beecheyi,body mass,147
 Spermophilus beecheyi,ear length to notch,296
-Spermophilus beecheyi,pes length,491
-Spermophilus beecheyi,tail length,489
+Spermophilus beecheyi,pes length,334
+Spermophilus beecheyi,tail length,330
 Spermophilus beechyi,body length,1
 Spermophilus beechyi,ear length to notch,1
 Spermophilus beechyi,pes length,1
@@ -11403,7 +11206,7 @@ Spilogale pygmaea,ear length to notch,3
 Spilogale pygmaea,pes length,3
 Spilogale pygmaea,tail length,3
 Steatomys,body length,1
-Steatomys Peters,,tail length,2
+Steatomys Peters,tail length,2
 Steatomys parvus,body length,3
 Steatomys parvus,body mass,3
 Steatomys parvus,ear length to notch,3
@@ -11480,10 +11283,10 @@ Suncus,body mass,1
 Suncus,ear length to notch,5
 Suncus,pes length,5
 Suncus,tail length,6
-Suncus Ehrenberg,,body length,1
-Suncus Ehrenberg,,ear length to notch,1
-Suncus Ehrenberg,,pes length,1
-Suncus Ehrenberg,,tail length,1
+Suncus Ehrenberg,body length,1
+Suncus Ehrenberg,ear length to notch,1
+Suncus Ehrenberg,pes length,1
+Suncus Ehrenberg,tail length,1
 Suncus etruscus,body length,4
 Suncus etruscus,body mass,2
 Suncus etruscus,ear length to notch,2
@@ -11539,10 +11342,10 @@ Sylvilagus,body mass,242
 Sylvilagus,ear length to notch,344
 Sylvilagus,pes length,341
 Sylvilagus,tail length,371
-Sylvilagus Gray,,body length,1
-Sylvilagus Gray,,ear length to notch,1
-Sylvilagus Gray,,pes length,1
-Sylvilagus Gray,,tail length,1
+Sylvilagus Gray,body length,1
+Sylvilagus Gray,ear length to notch,1
+Sylvilagus Gray,pes length,1
+Sylvilagus Gray,tail length,1
 Sylvilagus aquaticus,body length,102
 Sylvilagus aquaticus,body mass,12
 Sylvilagus aquaticus,ear length to notch,60
@@ -11979,10 +11782,10 @@ Tapecomys wolffsohni,ear length to notch,1
 Tapecomys wolffsohni,pes length,1
 Tapecomys wolffsohni,tail length,1
 Tapirus,body length,3
-Tapirus Brisson,,body length,1
-Tapirus Brisson,,ear length to notch,1
-Tapirus Brisson,,pes length,1
-Tapirus Brisson,,tail length,1
+Tapirus Brisson,body length,1
+Tapirus Brisson,ear length to notch,1
+Tapirus Brisson,pes length,1
+Tapirus Brisson,tail length,1
 Tapirus americanus,body length,1
 Tapirus americanus,pes length,1
 Tapirus americanus,tail length,1
@@ -12021,8 +11824,8 @@ Tatera,body mass,22
 Tatera,ear length to notch,26
 Tatera,pes length,26
 Tatera,tail length,26
-Tatera Lataste,,body mass,9
-Tatera Lataste,,tail length,11
+Tatera Lataste,body mass,9
+Tatera Lataste,tail length,11
 Tatera afra,body length,3
 Tatera afra,ear length to notch,3
 Tatera afra,pes length,3
@@ -12405,8 +12208,8 @@ Tremarctos ornatus,body mass,2
 Tremarctos ornatus,ear length to notch,3
 Tremarctos ornatus,pes length,3
 Tremarctos ornatus,tail length,2
-Trichechus Linnaeus,,body length,7
-Trichechus Linnaeus,,body mass,6
+Trichechus Linnaeus,body length,7
+Trichechus Linnaeus,body mass,6
 Trichechus inunguis,body length,1
 Trichechus manatus,body length,110
 Trichechus manatus,body mass,34
@@ -12529,22 +12332,12 @@ Uncia uncia,pes length,15
 Uncia uncia,tail length,15
 Unknown,body length,14
 Unknown,body mass,7
-Unknown,breadth of the trochlea of talus,1
-Unknown,depth of the medial side of talus,1
 Unknown,ear length to notch,12
-Unknown,length of the medial side of talus,1
 Unknown,pes length,11
 Unknown,tail length,13
 Unkown,body length,9
 Unkown,body mass,7
-Unkown,breadth of the trochlea of talus,27
-Unkown,depth of the medial side of talus,16
 Unkown,ear length to notch,7
-Unkown,femur length to greater trochanter,1
-Unkown,femur length to head of femur,1
-Unkown,humerus length to caput of humerus,1
-Unkown,humerus length to ventral tubercle,1
-Unkown,length of the medial side of talus,28
 Unkown,pes length,7
 Unkown,tail length,7
 Uranomys ruddi,body length,2

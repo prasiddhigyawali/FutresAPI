@@ -136,6 +136,8 @@ def taxonomize(df):
     df['scientificName'] = df['scientificName'].str.replace("\((.*?)\)",'')  
     df['scientificName'] = df['scientificName'].str.strip()
     df['scientificName'] = df['scientificName'].str.replace('  ',' ')
+    df['scientificName'] = df['scientificName'].str.rstrip(',')
+
     # If so much as see a question mark, call the name Unknown
     df['scientificName'] = df['scientificName'].apply(lambda x: 'Unknown' if '?' in x else x)
     # limit to binomial.  do not need trinomials or more
@@ -428,7 +430,7 @@ user = parser.get('geomedb', 'username')
 passwd = parser.get('geomedb', 'password')
 futres_team_id = parser.get('geomedb', 'futres_team_id')
 # TODO: dynamically fetch access_token
-#access_token = parser.get('geomedb', 'access_token')
+access_token = parser.get('geomedb', 'access_token')
 
 # Run Application
 #quicktest()
