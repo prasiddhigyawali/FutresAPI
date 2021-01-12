@@ -6,7 +6,7 @@ import urllib.request
 import numpy as np
 import os
 import re
-import configparser     
+from configparser import ConfigParser
         
 # hold scientificName objects 
 class scientificNames:
@@ -101,6 +101,8 @@ def process_data():
                 print ('processing ' + temp_file)
                 thisDF = pd.read_csv(temp_file, na_filter=False)                                                
                 thisDF['individualID'] = ''
+                thisDF['observationID'] = ''
+
                 thisDF['projectId'] = 'Vertnet'
                 # create empty columns for genus/specificEpithet, we will use scientificName to 
                 # parse these in taxonomize functon
@@ -114,16 +116,25 @@ def process_data():
                 thisDF = thisDF[thisDF.measurementValue != '--']   
                 df = df.append(thisDF,sort=False)  
     
-    df = taxonomize(df);
-
+    df = data_pruning(df)
+    
     print("writing dataframe to spreadsheet and zipped csv file...")               
     # Create a compressed output file so people can view a limited set of columns for the complete dataset
     SamplesDFOutput = df.reindex(columns=columns)
     SamplesDFOutput.to_csv(processed_csv_filename_zipped, index=False, compression="gzip")                  
 
+# a final step of data pruning where we remove any suspect data and report it
+def data_pruning(df):
+    df = taxonomize(df);
+    # create an observationID as unique value based on row index
+    df["observationID"] = df.index + 1
+    # the curly braces are used by the pipeline code to interpret rdfs:label values
+    df["measurementType"] = '{' + df['measurementType'].astype(str) + '}'
+    return df
+    
 def taxonomize(df):
     print ("cleaning up taxonomy")
-    df['scientificName'] = df['scientificName'].str.replace('cf.','')    
+    df['scientificName'] = df['scientificName'].str.replace('cf.','')
     df['scientificName'] = df['scientificName'].str.replace('cf','')
     df['scientificName'] = df['scientificName'].str.replace('sp.','')
     df['scientificName'] = df['scientificName'].str.replace('sp','')
@@ -140,6 +151,8 @@ def taxonomize(df):
     df['scientificName'] = df['scientificName'].str.replace("\((.*?)\)",'')  
     df['scientificName'] = df['scientificName'].str.strip()
     df['scientificName'] = df['scientificName'].str.replace('  ',' ')
+    df['scientificName'] = df['scientificName'].str.replace('"','')
+    df['scientificName'] = df['scientificName'].str.replace('\'','')        
     df['scientificName'] = df['scientificName'].str.rstrip(',')
 
     # If so much as see a question mark, call the name Unknown
@@ -152,8 +165,6 @@ def taxonomize(df):
     df['genus'] = df['scientificName'].str.split(' ').str[0]
     df['specificEpithet'] = df['scientificName'].str.split(' ').str[1]
     df['specificEpithet'] = df['specificEpithet'].fillna('')
-
-    
 
     return df    
     
@@ -387,7 +398,7 @@ def group_data(df):
     json_writer(group,'measurementUnit','data/measurementUnit.json','counts grouped by measurementUnit')
 
     group = df.groupby('measurementType')['measurementType'].size()
-    json_writer(group,'measurementType','data/measurementType.json','measuremenType')    
+    json_writer(group,'measurementType','data/measurementType.json','measurementType')    
     
     # scientificName by projectId
     group = df.groupby(['projectId','scientificName']).size()
@@ -417,30 +428,35 @@ api.write("|filename|definition|\n")
 api.write("|----|---|\n")
 
 # global variables
-columns = ['materialSampleID','country','locality','yearCollected','samplingProtocol','basisOfRecord','scientificName','genus','specificEpithet','measurementMethod','measurementUnit','measurementType','measurementValue','lifeStage','individualID','sex','decimalLatitude','decimalLongitude','projectId']
+columns = ['observationID','materialSampleID','country','locality','yearCollected','samplingProtocol','basisOfRecord','scientificName','genus','specificEpithet','measurementMethod','measurementUnit','measurementType','measurementValue','lifeStage','individualID','sex','decimalLatitude','decimalLongitude','projectId']
 processed_csv_filename_zipped = 'data/futres_data_processed.csv.gz'
 
 # Setup initial Environment
-parser = configparser.ConfigParser()
+parser = ConfigParser()
 if os.path.exists("db.ini") == False:
     print("unable fo read db.ini file, try copying dbtemp.ini to db.ini and updating setttings")
     sys.exit()
-  
-parser.read('db.ini')  
-
-# geomedb variables
-host = parser.get('geomedb', 'url')
-user = parser.get('geomedb', 'username')
-passwd = parser.get('geomedb', 'password')
+parser = ConfigParser()
+parser.read('db.ini')
+# information to grab access_token from GEOME
 futres_team_id = parser.get('geomedb', 'futres_team_id')
-# TODO: dynamically fetch access_token
-access_token = parser.get('geomedb', 'access_token')
+host = parser.get('geomedb', 'url')
+user = parser.get('geomedb', 'Username')
+passwd = parser.get('geomedb', 'Password')
+token_url = parser.get('geomedb', 'accessToken_url')
+url = requests.get(token_url)
+payload = {'client_id':parser.get('geomedb', 'client_id'),
+        'grant_type':parser.get('geomedb', 'grant_type'),
+        'username': user,
+        'password':passwd}
+res = requests.post(token_url, data = payload)
+access_token = res.json()["access_token"]
 
 # Run Application
 #quicktest()
 
-#fetch_geome_data()
-#project_table_builder()
+fetch_geome_data()
+project_table_builder()
 process_data()
 df = read_processed_data()
 group_data(df)
