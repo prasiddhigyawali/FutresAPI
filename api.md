@@ -9,6 +9,6 @@ Futres API Documentation
 |data/country_top20.json|counts grouped by country for top 20 names|
 |data/yearCollected.json|counts grouped by yearCollected|
 |data/measurementUnit.json|counts grouped by measurementUnit|
-|data/measurementType.json|measuremenType|
+|data/measurementType.json|measurementType|
 |data/scientificName_projectId_Vertnet.json|unique scientificName count for project Vertnet|
 |scientificName_listing.json|All scientific names and the projects that they appear in|
