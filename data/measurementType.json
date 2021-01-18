@@ -1,7 +1,18 @@
 [
-	{"measurementType":"body length","value":517552},
-	{"measurementType":"body mass","value":344300},
-	{"measurementType":"ear length to notch","value":401507},
-	{"measurementType":"pes length","value":468694},
-	{"measurementType":"tail length","value":485366}
+	{"measurementType":"{body height}","value":1},
+	{"measurementType":"{body length}","value":519777},
+	{"measurementType":"{body mass}","value":349327},
+	{"measurementType":"{breadth of the trochlea of talus}","value":496},
+	{"measurementType":"{depth of the medial side of talus}","value":422},
+	{"measurementType":"{ear length to notch}","value":396677},
+	{"measurementType":"{femur length to greater trochanter}","value":23},
+	{"measurementType":"{femur length to head of femur}","value":24},
+	{"measurementType":"{femur length}","value":15},
+	{"measurementType":"{humerus length to caput of humerus}","value":20},
+	{"measurementType":"{humerus length to ventral tubercle}","value":18},
+	{"measurementType":"{humerus length}","value":14},
+	{"measurementType":"{length of the medial side of talus}","value":472},
+	{"measurementType":"{pes length}","value":463710},
+	{"measurementType":"{tail length}","value":480009},
+	{"measurementType":"{talus length}","value":15}
 ]

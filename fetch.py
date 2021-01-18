@@ -7,6 +7,7 @@ import numpy as np
 import os
 import re
 from configparser import ConfigParser
+import data_pruner
         
 # hold scientificName objects 
 class scientificNames:
@@ -84,10 +85,6 @@ def process_data():
                 thisDF = pd.read_excel(temp_file,sheet_name='Samples', na_filter=False)                                                
                 thisDF = thisDF.reindex(columns=columns)            
                 thisDF = thisDF.astype(str)
-                #thisDF['projectURL'] = str("https://geome-db.org/workbench/project-overview?projectId=") + thisDF['projectId'].astype(str)
-                # Remove bad measurementValues
-                thisDF = thisDF[thisDF.measurementValue != '--']   
-                thisDF = thisDF[thisDF.measurementValue == isinstance(thisDF.measurementValue,float)]   
                 df = df.append(thisDF,sort=False)
     
     print ('processing Vertnet data...')  
@@ -112,62 +109,34 @@ def process_data():
                       
                 thisDF = thisDF.reindex(columns=columns)            
                 thisDF = thisDF.astype(str)
-                # Remove bad measurementValues
-                thisDF = thisDF[thisDF.measurementValue != '--']   
+
                 df = df.append(thisDF,sort=False)  
     
-    df = data_pruning(df)
+    prunedDF, cleanDF = data_cleaning(df)
     
     print("writing dataframe to spreadsheet and zipped csv file...")               
     # Create a compressed output file so people can view a limited set of columns for the complete dataset
-    SamplesDFOutput = df.reindex(columns=columns)
-    SamplesDFOutput.to_csv(processed_csv_filename_zipped, index=False, compression="gzip")                  
+    SamplesDFOutput = cleanDF.reindex(columns=columns)
+    SamplesDFOutput.to_csv(processed_csv_filename_zipped, index=False, compression="gzip")
+    
+    prunecolumns = columns
+    prunecolumns.append('reason')
+    PrunedDFOutput = prunedDF.reindex(columns=prunecolumns)
+    PrunedDFOutput.to_csv(pruned_csv_filename, index=False)
 
-# a final step of data pruning where we remove any suspect data and report it
-def data_pruning(df):
-    df = taxonomize(df);
+# a final step of data cleaning
+def data_cleaning(df):
+    df['genus'] = df['scientificName'].str.split(' ').str[0]
+    df['specificEpithet'] = df['scientificName'].str.split(' ').str[1]    
+    
     # create an observationID as unique value based on row index
     df["observationID"] = df.index + 1
     # the curly braces are used by the pipeline code to interpret rdfs:label values
-    df["measurementType"] = '{' + df['measurementType'].astype(str) + '}'
-    return df
+    df["measurementType"] = '{' + df['measurementType'].astype(str) + '}'    
     
-def taxonomize(df):
-    print ("cleaning up taxonomy")
-    df['scientificName'] = df['scientificName'].str.replace('cf.','')
-    df['scientificName'] = df['scientificName'].str.replace('cf','')
-    df['scientificName'] = df['scientificName'].str.replace('sp.','')
-    df['scientificName'] = df['scientificName'].str.replace('sp','')
-    df['scientificName'] = df['scientificName'].str.replace('aff.','')
-    df['scientificName'] = df['scientificName'].str.replace('\(new SW','')
-    df['scientificName'] = df['scientificName'].str.replace('whale','')
-    df['scientificName'] = df['scientificName'].str.replace('unknown','')
-    df['scientificName'] = df['scientificName'].str.replace('Mammalia \(Linnaeus','')
-    df['scientificName'] = df['scientificName'].str.replace('Mammalia, large','')
-    df['scientificName'] = df['scientificName'].str.replace('Mammalia','')
-
-    
-    # remove all material between parenthesis and the paranthesis themselves
-    df['scientificName'] = df['scientificName'].str.replace("\((.*?)\)",'')  
-    df['scientificName'] = df['scientificName'].str.strip()
-    df['scientificName'] = df['scientificName'].str.replace('  ',' ')
-    df['scientificName'] = df['scientificName'].str.replace('"','')
-    df['scientificName'] = df['scientificName'].str.replace('\'','')        
-    df['scientificName'] = df['scientificName'].str.rstrip(',')
-
-    # If so much as see a question mark, call the name Unknown
-    df['scientificName'] = df['scientificName'].apply(lambda x: 'Unknown' if '?' in x else x)
-    # limit to binomial.  do not need trinomials or more
-    df['scientificName'] = df.apply(lambda x: ' '.join(x['scientificName'].split()[:2]), axis=1)
-    df['scientificName'] = df['scientificName'].str.replace(chr(34),'')
-    # if scientificName is completely empty we call it Unknown
-    df['scientificName'] = df['scientificName'].str.replace(r'^\s*$','Unkown')
-    df['genus'] = df['scientificName'].str.split(' ').str[0]
-    df['specificEpithet'] = df['scientificName'].str.split(' ').str[1]
-    df['specificEpithet'] = df['specificEpithet'].fillna('')
-
-    return df    
-    
+    # Run pruner
+    return data_pruner.init(df)
+        
 # function to write tuples to json from pandas group by
 # using two group by statements.
 def json_tuple_writer(group,name,filename,definition):
@@ -430,6 +399,8 @@ api.write("|----|---|\n")
 # global variables
 columns = ['observationID','materialSampleID','country','locality','yearCollected','samplingProtocol','basisOfRecord','scientificName','genus','specificEpithet','measurementMethod','measurementUnit','measurementType','measurementValue','lifeStage','individualID','sex','decimalLatitude','decimalLongitude','projectId']
 processed_csv_filename_zipped = 'data/futres_data_processed.csv.gz'
+pruned_csv_filename = 'data/futres_data_with_errors.csv'
+
 
 # Setup initial Environment
 parser = ConfigParser()

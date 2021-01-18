@@ -1,3 +1,7 @@
 [
-	{"scientificName":"Odocoileus virginianus","value":2520}
+	{"scientificName":"Odocoileus virginianus","value":2509},
+	{"scientificName":"Odocoileus virginianus borealis","value":2},
+	{"scientificName":"Odocoileus virginianus cousei","value":4},
+	{"scientificName":"Odocoileus virginianus dacotensis","value":1},
+	{"scientificName":"Odocoileus virginianus truei","value":4}
 ]
