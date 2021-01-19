@@ -94,4 +94,4 @@ def testit():
     print ("*******************")
     print (prunedDF)
 
-testit()
+#testit()

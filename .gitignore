@@ -9,3 +9,4 @@ vertnet/
 vertnet.bak/
 db.ini
 .python-version
+__pycache__/

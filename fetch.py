@@ -30,7 +30,7 @@ def quicktest():
     prunedDF, cleanDF = data_cleaning(df)
      
     #print(prunedDF)
-    print(cleanDF[['materialSampleID','measurementValue','measurementUnit']])
+    print(cleanDF[['materialSampleID','measurementValue','measurementUnit','yearCollected']])
     #group = cleanDF.groupby('scientificName')['scientificName'].size()    
     #json_writer(group,'scientificName','data/scientificName.json','counts grouped by scientificName') 
     
@@ -126,11 +126,21 @@ def process_data():
     PrunedDFOutput = prunedDF.reindex(columns=prunecolumns)
     PrunedDFOutput.to_csv(pruned_csv_filename, index=False)
 
-# a final step of data cleaning
+# Final step of data cleaning
+# we are careful about what values we change here... we only change
+# things that are straightforward, such as changing cases, and converting
+# values.  The data_pruner is used to report & toss data that is unclear (e.g. names with ?)
 def data_cleaning(df):
+    # reset indexes
+    df = df.reindex(columns=columns)    
+    df = df.reset_index(drop=True)
+    
     df['genus'] = df['scientificName'].str.split(' ').str[0]
     df['specificEpithet'] = df['scientificName'].str.split(' ').str[1]    
     
+    # standardize yearCollected values
+    df.loc[df['yearCollected'] == 'Unknown', 'yearCollected'] = 'unknown'
+
     # create an observationID as unique value based on row index
     df["observationID"] = df.index + 1
     # the curly braces are used by the pipeline code to interpret rdfs:label values
@@ -434,13 +444,13 @@ res = requests.post(token_url, data = payload)
 access_token = res.json()["access_token"]
 
 # Run Application
-quicktest()
+#quicktest()
 
 #fetch_geome_data()
 #project_table_builder()
-#process_data()
-#df = read_processed_data()
-#group_data(df)
+process_data()
+df = read_processed_data()
+group_data(df)
 
 ## Finish up
-#api.close()
+api.close()
