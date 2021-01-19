@@ -18,15 +18,15 @@ import warnings
 
 # enforce numeric datatype
 def datatype_pattern(value, pattern, prunedDF, df, message):
-    warnings.filterwarnings("ignore", 'This pattern has match groups')
     tempDF = df
     cleanDF = df
-    tempDF['reason'] = message   
+    tempDF.loc[:, ('reason')] = message
     # convert to numeric, coerce means turn bad values to NaN
     pattern = pd.to_numeric(pattern, errors='coerce')
     # append null values to pruned result
     prunedDF = prunedDF.append(tempDF[pd.isna(pattern)])
     del tempDF['reason']
+
     # only accept not null values into cleanDF
     cleanDF = cleanDF[pattern.notnull()] 
     return prunedDF, cleanDF
@@ -34,12 +34,12 @@ def datatype_pattern(value, pattern, prunedDF, df, message):
 # class that prunes matched patterns
 def pattern(value, pattern, prunedDF, df, message):
     warnings.filterwarnings("ignore", 'This pattern has match groups')
-    tempDF = df
-    cleanDF = df
-    tempDF['reason'] = message
+    tempDF = df.copy()
+    cleanDF = df.copy()
+    tempDF.loc[:, ('reason')] = message
     prunedDF = prunedDF.append(tempDF[pattern.astype(str).str.contains(value) == True],ignore_index=True)
     del tempDF['reason']
-    cleanDF = cleanDF[pattern.astype(str).str.contains(value) == False]    
+    cleanDF = df[pattern.astype(str).str.contains(value) == False]
     return prunedDF, cleanDF
 
 # loop through elements and prune
@@ -94,4 +94,4 @@ def testit():
     print ("*******************")
     print (prunedDF)
 
-#testit()
+testit()
