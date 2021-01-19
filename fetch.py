@@ -27,13 +27,15 @@ def quicktest():
     print ('processing ' + temp_file)
 
     df = pd.read_excel(temp_file,sheet_name='Samples', na_filter=False)                                                    
-    df = taxonomize(df)
-        
-    group = df.groupby('scientificName')['scientificName'].size()    
-    json_writer(group,'scientificName','data/scientificName.json','counts grouped by scientificName') 
+    prunedDF, cleanDF = data_cleaning(df)
+     
+    #print(prunedDF)
+    print(cleanDF[['materialSampleID','measurementValue','measurementUnit']])
+    #group = cleanDF.groupby('scientificName')['scientificName'].size()    
+    #json_writer(group,'scientificName','data/scientificName.json','counts grouped by scientificName') 
     
-    group = df.groupby('scientificName')['scientificName'].value_counts().sort_values(ascending=False).head(20)            
-    json_writer(group,'scientificName','data/scientificName_top20.json','counts grouped by scientificName for top 20 names') 
+    #group = cleanDF.groupby('scientificName')['scientificName'].value_counts().sort_values(ascending=False).head(20)            
+    #json_writer(group,'scientificName','data/scientificName_top20.json','counts grouped by scientificName for top 20 names') 
     
     
 # fetch data from GEOME that matches the Futres TEAM and put into an easily queriable format.
@@ -135,7 +137,15 @@ def data_cleaning(df):
     df["measurementType"] = '{' + df['measurementType'].astype(str) + '}'    
     
     # Run pruner
-    return data_pruner.init(df)
+    prunedDF, cleanDF = data_pruner.init(df)
+    
+    # convert measurement units
+    cleanDF.loc[cleanDF['measurementUnit'] == 'in', 'measurementValue'] = cleanDF.measurementValue.astype(float) * 25.4
+    cleanDF.loc[cleanDF['measurementUnit'] == 'in', 'measurementUnit'] = 'mm'
+    cleanDF.loc[cleanDF['measurementUnit'] == 'lb', 'measurementValue'] = cleanDF.measurementValue.astype(float) * 453.592
+    cleanDF.loc[cleanDF['measurementUnit'] == 'lb', 'measurementUnit'] = 'g'
+    
+    return prunedDF, cleanDF
         
 # function to write tuples to json from pandas group by
 # using two group by statements.
@@ -424,13 +434,13 @@ res = requests.post(token_url, data = payload)
 access_token = res.json()["access_token"]
 
 # Run Application
-#quicktest()
+quicktest()
 
-fetch_geome_data()
-project_table_builder()
-process_data()
-df = read_processed_data()
-group_data(df)
+#fetch_geome_data()
+#project_table_builder()
+#process_data()
+#df = read_processed_data()
+#group_data(df)
 
-# Finish up
-api.close()
+## Finish up
+#api.close()
