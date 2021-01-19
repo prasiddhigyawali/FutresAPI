@@ -460,8 +460,8 @@ access_token = res.json()["access_token"]
 # Run Application
 #quicktest()
 
-#fetch_geome_data()
-#project_table_builder()
+fetch_geome_data()
+project_table_builder()
 process_data()
 df = read_processed_data()
 group_data(df)
