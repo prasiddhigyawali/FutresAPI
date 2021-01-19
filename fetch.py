@@ -149,12 +149,26 @@ def data_cleaning(df):
     # Run pruner
     prunedDF, cleanDF = data_pruner.init(df)
     
-    # convert measurement units
+    # convert all measurement units that are available in GEOME to either mm or g
+    # length
     cleanDF.loc[cleanDF['measurementUnit'] == 'in', 'measurementValue'] = cleanDF.measurementValue.astype(float) * 25.4
     cleanDF.loc[cleanDF['measurementUnit'] == 'in', 'measurementUnit'] = 'mm'
+    cleanDF.loc[cleanDF['measurementUnit'] == 'cm', 'measurementValue'] = cleanDF.measurementValue.astype(float) * 10
+    cleanDF.loc[cleanDF['measurementUnit'] == 'cm', 'measurementUnit'] = 'mm'
+    cleanDF.loc[cleanDF['measurementUnit'] == 'm', 'measurementValue'] = cleanDF.measurementValue.astype(float) * 1000
+    cleanDF.loc[cleanDF['measurementUnit'] == 'm', 'measurementUnit'] = 'mm'
+    cleanDF.loc[cleanDF['measurementUnit'] == 'ft', 'measurementValue'] = cleanDF.measurementValue.astype(float) * 304.8
+    cleanDF.loc[cleanDF['measurementUnit'] == 'ft', 'measurementUnit'] = 'mm'
+    cleanDF.loc[cleanDF['measurementUnit'] == 'km', 'measurementValue'] = cleanDF.measurementValue.astype(float) * 1000000
+    cleanDF.loc[cleanDF['measurementUnit'] == 'km', 'measurementUnit'] = 'mm'
+    # weight
+    cleanDF.loc[cleanDF['measurementUnit'] == 'kg', 'measurementValue'] = cleanDF.measurementValue.astype(float) * 1000
+    cleanDF.loc[cleanDF['measurementUnit'] == 'kg', 'measurementUnit'] = 'g'
     cleanDF.loc[cleanDF['measurementUnit'] == 'lb', 'measurementValue'] = cleanDF.measurementValue.astype(float) * 453.592
     cleanDF.loc[cleanDF['measurementUnit'] == 'lb', 'measurementUnit'] = 'g'
-    
+    cleanDF.loc[cleanDF['measurementUnit'] == 'oz', 'measurementValue'] = cleanDF.measurementValue.astype(float) * 28.3495
+    cleanDF.loc[cleanDF['measurementUnit'] == 'oz', 'measurementUnit'] = 'g'
+        
     return prunedDF, cleanDF
         
 # function to write tuples to json from pandas group by
