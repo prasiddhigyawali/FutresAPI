@@ -31,14 +31,14 @@ class JSONSerializerPython2(serializer.JSONSerializer):
 
 
 class ESLoader(object):
-    def __init__(self, data_dir, index_name, drop_existing=False, alias=None, host='localhost:9200'):
+    def __init__(self, file_name, index_name, drop_existing=False, alias=None, host='localhost:9200'):
         """
-        :param data_dir:
+        :param file_name
         :param index_name: the es index to upload to
         :param drop_existing:
         :param alias: the es alias to associate the index with
         """
-        self.data_dir = data_dir
+        self.file_name = file_name
         self.index_name = index_name
         self.drop_existing = drop_existing
         self.alias = alias
@@ -53,19 +53,15 @@ class ESLoader(object):
             self.es.indices.delete(index=self.index_name)
             print ('creating index ' + self.index_name)
             self.__create_index()
-
-        doc_count = 0
         
-        print('searching for files in ' + self.data_dir)
-        for file in get_files(self.data_dir):
-            try:
-                print(file)
-                doc_count += self.__load_file(file)
-            except RuntimeError as e:
-                print(e)
-                print("Failed to load file {}".format(file))
+        print('indexing ' + self.file_name)
+        try:
+            self.__load_file(self.file_name)
+        except RuntimeError as e:
+            print(e)
+            print("Failed to load " + self.file_name)
 
-        print("Indexed {} documents total".format(doc_count))
+        print("Finished indexing")
 
     def __load_file(self, file):
         doc_count = 0
@@ -76,7 +72,12 @@ class ESLoader(object):
             reader = csv.DictReader(f)
 
             for row in reader:
-                row['location'] = row['decimalLatitude'] + "," + row['decimalLongitude'] 
+                # gracefully handle empty locations
+                if (row['decimalLatitude'] == '' or row['decimalLongitude'] == ''): 
+                    row['location'] = ''
+                else:
+                    row['location'] = row['decimalLatitude'] + "," + row['decimalLongitude'] 
+
                 data.append({k: v for k, v in row.items() if v})  # remove any empty values
 
             elasticsearch.helpers.bulk(client=self.es, index=self.index_name, actions=data, doc_type=TYPE,
@@ -94,34 +95,22 @@ class ESLoader(object):
                         "measurementType": {"type": "text"},
                         "measurementValue": {"type": "float"},
                         "decimalLatitude": { "type": "float" },
-                        "decimalLongitude": { "type": "float" }
-                        #"location": { "type": "geo_point" }                        
+                        "decimalLongitude": { "type": "float" },
+                        "location": { "type": "geo_point" }                        
                     }
                 }
             }
         }
         self.es.indices.create(index=self.index_name, body=request_body)
-        #if self.alias:
-            #self.es.indices.put_alias(index=self.index_name, name=self.alias)
 
-def get_files(dir, ext='csv'):
-    for root, dirs, files in os.walk(dir):
-
-        if len(files) == 0:
-            print("no files found in {}".format(dir))
-
-        for file in files:
-            if file.endswith(ext):
-                yield os.path.join(root, file)
-
-
-inputDirectory = 'data/'
 index = 'futres'
 drop_existing = True
 alias = 'futres'
 host =  'tarly.cyverse.org:80'
+#file_name = 'data/futres_data_processed.csv'
+file_name = 'loadertest.csv'
 
-loader = ESLoader(inputDirectory, index, drop_existing, alias, host)
+loader = ESLoader(file_name, index, drop_existing, alias, host)
 loader.load()
 
 

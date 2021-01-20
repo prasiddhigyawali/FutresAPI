@@ -139,7 +139,8 @@ def data_cleaning(df):
     df['specificEpithet'] = df['scientificName'].str.split(' ').str[1]    
     
     # standardize yearCollected values
-    df.loc[df['yearCollected'] == 'Unknown', 'yearCollected'] = 'unknown'
+    df.loc[df['yearCollected'] == 'Unknown', 'yearCollected'] = ''
+    df.loc[df['yearCollected'] == 'unknown', 'yearCollected'] = ''
 
     # create an observationID as unique value based on row index
     df["observationID"] = df.index + 1
