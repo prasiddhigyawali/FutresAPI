@@ -78,6 +78,9 @@ class ESLoader(object):
                 else:
                     row['location'] = row['decimalLatitude'] + "," + row['decimalLongitude'] 
 
+                if (row['yearCollected'] == 'unknown'): 
+                    row['yearCollected'] = ''
+
                 data.append({k: v for k, v in row.items() if v})  # remove any empty values
 
             elasticsearch.helpers.bulk(client=self.es, index=self.index_name, actions=data, doc_type=TYPE,
@@ -107,8 +110,8 @@ index = 'futres'
 drop_existing = True
 alias = 'futres'
 host =  'tarly.cyverse.org:80'
-#file_name = 'data/futres_data_processed.csv'
-file_name = 'loadertest.csv'
+file_name = 'data/futres_data_processed.csv'
+#file_name = 'loadertest.csv'
 
 loader = ESLoader(file_name, index, drop_existing, alias, host)
 loader.load()
