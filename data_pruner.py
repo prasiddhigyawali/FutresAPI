@@ -13,8 +13,26 @@ import re
 import configparser     
 import csv
 import warnings
+import urllib.request, json 
                       
-# Todo: write a function that checks for values in controlled vocabulary
+# Check Traits from FOVT, need to make sure these all match
+def datatype_trait_checker(prunedDF, df):
+    with urllib.request.urlopen("https://plantphenology.org//futresapi/v2/fovt/") as url:
+        tempDF = df
+        tempDF.loc[:, ('reason')] = "measurementType value not found in ontology"
+
+        data = json.loads(url.read().decode())
+        print(df['measurementType'])
+        labelList = list()
+        
+        for label in data:
+            labelList.append(label['label'])
+            
+        cleanDF = df[df.measurementType.isin(labelList)]  
+        prunedDF = prunedDF.append(tempDF[~df.measurementType.isin(labelList)],ignore_index=True)    
+        del tempDF['reason']
+
+    return prunedDF, cleanDF
 
 # enforce numeric datatype
 def datatype_pattern(value, pattern, prunedDF, df, message):
@@ -68,12 +86,15 @@ def prune_patterns(df):
     # this fails because the column has numbers
     prunedDF, df = pattern('\-\-',df.measurementValue, prunedDF, df, 'measurementValue -- is invalid')
     prunedDF, df = datatype_pattern('',df.measurementValue, prunedDF, df, 'measurementValue not a float')
-          
+    
+    prunedDF, df = datatype_trait_checker(prunedDF, df)  
+        
     cleanDF = df                
     return prunedDF, cleanDF
 
 def init(df):
     print ('pruning')
+    
     prunedDF, cleanDF = prune_patterns(df)
     return prunedDF, cleanDF
 
