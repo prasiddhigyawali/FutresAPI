@@ -22,11 +22,11 @@ def datatype_trait_checker(prunedDF, df):
         tempDF.loc[:, ('reason')] = "measurementType value not found in ontology"
 
         data = json.loads(url.read().decode())
-        #print(df['measurementType'])
         labelList = list()
         
         for label in data:
-            labelList.append(label['label'])
+            #labelList.append(label['label'])
+            labelList.append('{'+label['label']+'}')
             
         cleanDF = df[df.measurementType.isin(labelList)]  
         prunedDF = prunedDF.append(tempDF[~df.measurementType.isin(labelList)],ignore_index=True)    
