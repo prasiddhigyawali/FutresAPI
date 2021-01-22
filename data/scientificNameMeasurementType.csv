@@ -2310,7 +2310,6 @@ Connochaetes taurinus,{body mass},2
 Connochaetes taurinus,{ear length to notch},3
 Connochaetes taurinus,{pes length},3
 Connochaetes taurinus,{tail length},2
-Cormohipparion aff. sinapensis,{breadth of the trochlea of talus},1
 Cormohipparion aff. sinapensis,{depth of the medial side of talus},1
 Cormohipparion aff. sinapensis,{length of the medial side of talus},1
 Crateromys heaneyi,{body length},1
@@ -2361,19 +2360,14 @@ Cratogeomys zinseri,{body length},3
 Cratogeomys zinseri,{ear length to notch},3
 Cratogeomys zinseri,{pes length},3
 Cratogeomys zinseri,{tail length},3
-Cremohipparion aff. matthewi,{breadth of the trochlea of talus},6
 Cremohipparion aff. matthewi,{depth of the medial side of talus},6
 Cremohipparion aff. matthewi,{length of the medial side of talus},6
-Cremohipparion antelopinum,{breadth of the trochlea of talus},5
 Cremohipparion antelopinum,{depth of the medial side of talus},5
 Cremohipparion antelopinum,{length of the medial side of talus},5
-Cremohipparion cf. antelopinum,{breadth of the trochlea of talus},1
 Cremohipparion cf. antelopinum,{depth of the medial side of talus},1
 Cremohipparion cf. antelopinum,{length of the medial side of talus},1
-Cremohipparion cf. nikosi,{breadth of the trochlea of talus},1
 Cremohipparion cf. nikosi,{depth of the medial side of talus},1
 Cremohipparion cf. nikosi,{length of the medial side of talus},1
-Cremohipparion mediterraneum,{breadth of the trochlea of talus},4
 Cremohipparion mediterraneum,{depth of the medial side of talus},4
 Cremohipparion mediterraneum,{length of the medial side of talus},4
 Cricetidae,{body length},48
@@ -3722,13 +3716,11 @@ Equus,{body length},10
 Equus,{tail length},1
 Equus Linnaeus,{body length},4
 Equus asinus,{body length},6
-Equus asinus,{breadth of the trochlea of talus},1
 Equus asinus,{depth of the medial side of talus},1
 Equus asinus,{length of the medial side of talus},1
 Equus burchelli,{body length},1
 Equus burchelli,{body mass},1
 Equus burchellii,{body length},13
-Equus burchellii,{breadth of the trochlea of talus},1
 Equus burchellii,{depth of the medial side of talus},1
 Equus burchellii,{ear length to notch},2
 Equus burchellii,{length of the medial side of talus},1
@@ -3740,19 +3732,15 @@ Equus caballus,{ear length to notch},2
 Equus caballus,{pes length},2
 Equus caballus,{tail length},3
 Equus calobatus,{body length},2
-Equus cf. grevyi,{breadth of the trochlea of talus},2
 Equus cf. grevyi,{depth of the medial side of talus},2
 Equus cf. grevyi,{length of the medial side of talus},2
 Equus conversidens,{body length},2
-Equus conversidens,{breadth of the trochlea of talus},1
 Equus conversidens,{depth of the medial side of talus},1
-Equus eisenmannae,{breadth of the trochlea of talus},1
 Equus eisenmannae,{depth of the medial side of talus},1
 Equus eisenmannae,{length of the medial side of talus},1
 Equus ferus,{body length},1
 Equus grevyi,{body length},10
 Equus grevyi,{body mass},1
-Equus grevyi,{breadth of the trochlea of talus},14
 Equus grevyi,{depth of the medial side of talus},14
 Equus grevyi,{ear length to notch},2
 Equus grevyi,{femur length to greater trochanter},3
@@ -3763,51 +3751,40 @@ Equus grevyi,{length of the medial side of talus},14
 Equus grevyi,{pes length},2
 Equus grevyi,{tail length},2
 Equus hemionus,{body length},3
-Equus hemionus,{breadth of the trochlea of talus},2
 Equus hemionus,{depth of the medial side of talus},2
 Equus hemionus,{length of the medial side of talus},2
 Equus kiang,{body length},1
-Equus kiang,{breadth of the trochlea of talus},4
 Equus kiang,{depth of the medial side of talus},4
 Equus kiang,{length of the medial side of talus},4
-Equus livenzoensis,{breadth of the trochlea of talus},4
 Equus livenzoensis,{depth of the medial side of talus},4
 Equus livenzoensis,{length of the medial side of talus},4
-Equus major/bressanus,{breadth of the trochlea of talus},2
 Equus major/bressanus,{depth of the medial side of talus},2
 Equus major/bressanus,{length of the medial side of talus},2
 Equus occidentalis,{body length},2
-Equus occidentalis,{breadth of the trochlea of talus},10
 Equus occidentalis,{depth of the medial side of talus},10
 Equus occidentalis,{length of the medial side of talus},10
 Equus onager,{body length},1
 Equus przewalskii,{body length},2
 Equus quagga,{body length},12
-Equus quagga,{breadth of the trochlea of talus},8
 Equus quagga,{depth of the medial side of talus},8
 Equus quagga,{femur length to greater trochanter},2
 Equus quagga,{femur length to head of femur},2
 Equus quagga,{humerus length to caput of humerus},2
 Equus quagga,{humerus length to ventral tubercle},1
 Equus quagga,{length of the medial side of talus},7
-Equus quagga boehemi,{breadth of the trochlea of talus},5
 Equus quagga boehemi,{depth of the medial side of talus},5
 Equus quagga boehemi,{length of the medial side of talus},5
 Equus scotti,{body length},1
-Equus simplicidens,{breadth of the trochlea of talus},16
 Equus simplicidens,{depth of the medial side of talus},13
 Equus simplicidens,{femur length to greater trochanter},3
 Equus simplicidens,{femur length to head of femur},3
 Equus simplicidens,{humerus length to caput of humerus},3
 Equus simplicidens,{humerus length to ventral tubercle},3
 Equus simplicidens,{length of the medial side of talus},16
-Equus sp.,{breadth of the trochlea of talus},114
 Equus sp.,{depth of the medial side of talus},99
 Equus sp.,{length of the medial side of talus},113
-Equus stehlini,{breadth of the trochlea of talus},1
 Equus stehlini,{depth of the medial side of talus},1
 Equus stehlini,{length of the medial side of talus},1
-Equus stenonis,{breadth of the trochlea of talus},4
 Equus stenonis,{depth of the medial side of talus},3
 Equus stenonis,{length of the medial side of talus},4
 Equus zebra,{body length},8
@@ -3815,7 +3792,6 @@ Equus zebra,{body mass},1
 Equus zebra,{ear length to notch},2
 Equus zebra,{pes length},2
 Equus zebra,{tail length},3
-Equus zebra zebra,{breadth of the trochlea of talus},1
 Equus zebra zebra,{depth of the medial side of talus},1
 Equus zebra zebra,{length of the medial side of talus},1
 Eremitalpa granti,{body mass},1
@@ -3926,47 +3902,35 @@ Euphractus sexcinctus,{pes length},6
 Euphractus sexcinctus,{tail length},8
 Eupleres goudotii,{body length},2
 Euroscaptor longirostris,{body length},4
-Eurygnathohippus aff. cornelianus,{breadth of the trochlea of talus},2
 Eurygnathohippus aff. cornelianus,{depth of the medial side of talus},2
 Eurygnathohippus aff. cornelianus,{length of the medial side of talus},2
-Eurygnathohippus aff. feibeli,{breadth of the trochlea of talus},5
 Eurygnathohippus aff. feibeli,{depth of the medial side of talus},4
 Eurygnathohippus aff. feibeli,{length of the medial side of talus},4
-Eurygnathohippus aff. hasumense,{breadth of the trochlea of talus},15
 Eurygnathohippus aff. hasumense,{depth of the medial side of talus},12
 Eurygnathohippus aff. hasumense,{humerus length to caput of humerus},1
 Eurygnathohippus aff. hasumense,{length of the medial side of talus},12
-Eurygnathohippus cf. feibeli,{breadth of the trochlea of talus},3
 Eurygnathohippus cf. feibeli,{depth of the medial side of talus},3
 Eurygnathohippus cf. feibeli,{length of the medial side of talus},3
-Eurygnathohippus cf. hasumense,{breadth of the trochlea of talus},1
 Eurygnathohippus cf. hasumense,{depth of the medial side of talus},2
 Eurygnathohippus cf. hasumense,{length of the medial side of talus},2
-Eurygnathohippus feibeli,{breadth of the trochlea of talus},10
 Eurygnathohippus feibeli,{depth of the medial side of talus},9
 Eurygnathohippus feibeli,{length of the medial side of talus},9
-Eurygnathohippus hasumense,{breadth of the trochlea of talus},10
 Eurygnathohippus hasumense,{depth of the medial side of talus},8
 Eurygnathohippus hasumense,{length of the medial side of talus},9
-Eurygnathohippus hooijeri,{breadth of the trochlea of talus},16
 Eurygnathohippus hooijeri,{depth of the medial side of talus},13
 Eurygnathohippus hooijeri,{femur length to greater trochanter},2
 Eurygnathohippus hooijeri,{femur length to head of femur},2
 Eurygnathohippus hooijeri,{humerus length to caput of humerus},1
 Eurygnathohippus hooijeri,{humerus length to ventral tubercle},1
 Eurygnathohippus hooijeri,{length of the medial side of talus},13
-Eurygnathohippus pomeli,{breadth of the trochlea of talus},1
 Eurygnathohippus pomeli,{depth of the medial side of talus},1
 Eurygnathohippus pomeli,{length of the medial side of talus},1
-Eurygnathohippus sp.,{breadth of the trochlea of talus},47
 Eurygnathohippus sp.,{depth of the medial side of talus},33
 Eurygnathohippus sp.,{femur length to greater trochanter},1
 Eurygnathohippus sp.,{femur length to head of femur},2
 Eurygnathohippus sp.,{length of the medial side of talus},45
-Eurygnathohippus sp. lg.,{breadth of the trochlea of talus},3
 Eurygnathohippus sp. lg.,{depth of the medial side of talus},2
 Eurygnathohippus sp. lg.,{length of the medial side of talus},3
-Eurygnathohippus woldegabrieli,{breadth of the trochlea of talus},7
 Eurygnathohippus woldegabrieli,{depth of the medial side of talus},5
 Eurygnathohippus woldegabrieli,{length of the medial side of talus},5
 Euryoryzomys legatus,{body length},33
@@ -4854,7 +4818,6 @@ Heteromys teleus,{tail length},1
 Heterosorex Gaillard,{body length},1
 Heteroxerus Stehlin,{body length},2
 Hexaprotodon liberiensis,{body length},1
-Hipparion prostylum,{breadth of the trochlea of talus},31
 Hipparion prostylum,{depth of the medial side of talus},26
 Hipparion prostylum,{length of the medial side of talus},24
 Hippocamelus antisensis,{body length},6
@@ -4868,7 +4831,6 @@ Hippopotamus amphibius,{body mass},1
 Hippopotamus amphibius,{ear length to notch},1
 Hippotherium giganteum,{femur length to greater trochanter},1
 Hippotherium giganteum,{femur length to head of femur},1
-Hippotherium primigeneium,{breadth of the trochlea of talus},58
 Hippotherium primigeneium,{depth of the medial side of talus},52
 Hippotherium primigeneium,{femur length to greater trochanter},9
 Hippotherium primigeneium,{femur length to head of femur},9
@@ -9694,7 +9656,6 @@ Plesiadapis praecursor,{body length},1
 Plesiadapis rex,{body length},2
 Plesiadapis simonsi,{body length},1
 Plesiadapis walbeckensis,{tail length},1
-Plesiohipparion longipes,{breadth of the trochlea of talus},2
 Plesiohipparion longipes,{depth of the medial side of talus},2
 Plesiohipparion longipes,{length of the medial side of talus},2
 Plesiosminthus schaubi,{body length},1
@@ -9834,7 +9795,6 @@ Prionailurus viverrinus,{body mass},1
 Prionailurus viverrinus,{ear length to notch},1
 Prionailurus viverrinus,{pes length},1
 Prionailurus viverrinus,{tail length},1
-Proboscidipparion heintzi,{breadth of the trochlea of talus},4
 Proboscidipparion heintzi,{depth of the medial side of talus},3
 Proboscidipparion heintzi,{length of the medial side of talus},4
 Procamptoceras Schaub,{body length},1
@@ -10962,25 +10922,18 @@ Sigmodontomys alfari,{ear length to notch},2
 Sigmodontomys alfari,{pes length},2
 Sigmodontomys alfari,{tail length},2
 Sinomastodon Tobien,{body length},1
-Sivalhippus anwari,{breadth of the trochlea of talus},1
 Sivalhippus anwari,{depth of the medial side of talus},1
 Sivalhippus anwari,{length of the medial side of talus},1
-Sivalhippus cf. perimense,{breadth of the trochlea of talus},1
 Sivalhippus cf. perimense,{depth of the medial side of talus},1
 Sivalhippus cf. perimense,{length of the medial side of talus},1
-Sivalhippus cf. theobaldi,{breadth of the trochlea of talus},1
 Sivalhippus cf. theobaldi,{depth of the medial side of talus},1
 Sivalhippus cf. theobaldi,{length of the medial side of talus},1
-Sivalhippus nagriensis,{breadth of the trochlea of talus},22
 Sivalhippus nagriensis,{depth of the medial side of talus},17
 Sivalhippus nagriensis,{length of the medial side of talus},21
-Sivalhippus perimense,{breadth of the trochlea of talus},7
 Sivalhippus perimense,{depth of the medial side of talus},6
 Sivalhippus perimense,{length of the medial side of talus},7
-Sivalhippus sp.,{breadth of the trochlea of talus},3
 Sivalhippus sp.,{depth of the medial side of talus},3
 Sivalhippus sp.,{length of the medial side of talus},3
-Sivalhippus turkanensis,{breadth of the trochlea of talus},3
 Sivalhippus turkanensis,{depth of the medial side of talus},3
 Sivalhippus turkanensis,{femur length to greater trochanter},1
 Sivalhippus turkanensis,{femur length to head of femur},1
@@ -13150,15 +13103,12 @@ Zyzomys argurus,{ear length to notch},10
 Zyzomys argurus,{pes length},10
 Zyzomys argurus,{tail length},3
 Zyzomys woodwardi,{tail length},1
-aff. Cremohipparion periafricanum,{breadth of the trochlea of talus},1
 aff. Cremohipparion periafricanum,{depth of the medial side of talus},1
 aff. Cremohipparion periafricanum,{length of the medial side of talus},1
 cf. Cercocebus,{body length},1
-cf. Eurygnathohippus sp.,{breadth of the trochlea of talus},1
 cf. Eurygnathohippus sp.,{depth of the medial side of talus},1
 cf. Eurygnathohippus sp.,{length of the medial side of talus},1
 cf. Sciurus,{body length},1
-cf. Sivalhippus turkanensis,{breadth of the trochlea of talus},5
 cf. Sivalhippus turkanensis,{depth of the medial side of talus},5
 cf. Sivalhippus turkanensis,{length of the medial side of talus},4
 sigmodon hispidus,{body length},1
@@ -13166,7 +13116,6 @@ sigmodon hispidus,{body mass},1
 sigmodon hispidus,{ear length to notch},1
 sigmodon hispidus,{pes length},1
 sigmodon hispidus,{tail length},1
-unknown,{breadth of the trochlea of talus},27
 unknown,{depth of the medial side of talus},16
 unknown,{femur length to greater trochanter},1
 unknown,{femur length to head of femur},1
