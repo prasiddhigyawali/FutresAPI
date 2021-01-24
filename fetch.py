@@ -18,8 +18,8 @@ class scientificNames:
         self.projects.append(projectCounter) 
         
 class projectCounter:
-    def __init__(self, projectId, count):  
-        self.projectId = projectId
+    def __init__(self, projectID, count):  
+        self.projectID = projectID
         self.count = count
                          
 def quicktest():
@@ -54,13 +54,13 @@ def fetch_geome_data():
         # filter for just projects matching the teamID
         if (str(projectConfigurationID) == str(futres_team_id)):
             
-            url="https://api.geome-db.org/records/Event/excel?networkId=1&q=_projects_:" + str(project["projectId"]) + "+_select_:%5BSample,Diagnostics%5D" + "&access_token="+access_token
+            url="https://api.geome-db.org/records/Event/excel?networkId=1&q=_projects_:" + str(project["projectID"]) + "+_select_:%5BSample,Diagnostics%5D" + "&access_token="+access_token
             r = requests.get(url)
             if (r.status_code == 204):
-                print ('no data found for project = ' + str(project["projectId"]))
+                print ('no data found for project = ' + str(project["projectID"]))
             else:
-                print("processing data for project = " + str(project["projectId"]))
-                temp_file = 'data/project_' + str(project["projectId"]) + ".xlsx"                                                
+                print("processing data for project = " + str(project["projectID"]))
+                temp_file = 'data/project_' + str(project["projectID"]) + ".xlsx"                                                
                 excel_file_url = json.loads(r.content)['url']   + "?access_token=" + access_token             
                 reqRet = urllib.request.urlretrieve(excel_file_url, temp_file)                
                                                                   
@@ -102,7 +102,7 @@ def process_data():
                 thisDF['individualID'] = ''
                 thisDF['observationID'] = ''
 
-                thisDF['projectId'] = 'Vertnet'
+                thisDF['projectID'] = 'Vertnet'
                 # create empty columns for genus/specificEpithet, we will use scientificName to 
                 # parse these in taxonomize functon
                 thisDF['genus'] = ''
@@ -204,31 +204,31 @@ def json_tuple_writer(group,name,filename,definition):
         
 # function to write tuples to json from pandas group by
 # using two group by statements.
-def json_tuple_writer_scientificName_projectId(group,name):
-    projectId = ''
-    thisprojectId = ''
+def json_tuple_writer_scientificName_projectID(group,name):
+    projectID = ''
+    thisprojectID = ''
     jsonstr = ''
     firsttime = True
     for rownum,(indx,val) in enumerate(group.iteritems()):  
         #print(str(indx[0]),str(indx[1]), str(val))              
-        thisprojectId = str(indx[0])
-        if (projectId != thisprojectId):
+        thisprojectID = str(indx[0])
+        if (projectID != thisprojectID):
             # End of file
             if firsttime == False:                
                 jsonstr = jsonstr.rstrip(',\n')
                 jsonstr += "\n]"            
-                with open('data/scientificName_projectId_' + projectId + ".json",'w') as f:
+                with open('data/scientificName_projectID_' + projectID + ".json",'w') as f:
                     f.write(jsonstr)                      
             # Beginning of file
             jsonstr = "[\n"
             jsonstr += ("\t{\"scientificName\":\"" + str(indx[1]) + "\",\"value\":"+str(val) +"},\n" )
 
-            api.write("|data/scientificName_projectId_"+thisprojectId +".json|unique scientificName count for project "+thisprojectId+"|\n")                
+            api.write("|data/scientificName_projectID_"+thisprojectID +".json|unique scientificName count for project "+thisprojectID+"|\n")                
         else:                                    
             jsonstr += ("\t{\"scientificName\":\"" + str(indx[1]) + "\",\"value\":"+str(val) +"},\n" )
 
             
-        projectId = thisprojectId
+        projectID = thisprojectID
 
         
         firsttime = False            
@@ -236,7 +236,7 @@ def json_tuple_writer_scientificName_projectId(group,name):
     # write the last one
     jsonstr = jsonstr.rstrip(',\n')
     jsonstr += "\n]"
-    with open('data/scientificName_projectId_' + thisprojectId +".json",'w') as f:
+    with open('data/scientificName_projectID_' + thisprojectID +".json",'w') as f:
                 f.write(jsonstr)        
          
          
@@ -266,18 +266,18 @@ def json_tuple_writer_scientificName_listing(group,name,df):
     # from these we will construct JSONS downstream
     for rownum,(indx,val) in enumerate(group.iteritems()):          
         thisscientificName = str(indx[0])
-        projectId = str(indx[1])
+        projectID = str(indx[1])
         count = str(val)                              
         if (scientificName != thisscientificName): 
             if firsttime:
                 s = scientificNames(thisscientificName)             
-                s.add_project(projectCounter(projectId,count)) 
+                s.add_project(projectCounter(projectID,count)) 
             else:    
                 scientificNameList.append(s)
                 s = scientificNames(thisscientificName)       
-                s.add_project(projectCounter(projectId,count))                                                       
+                s.add_project(projectCounter(projectID,count))                                                       
         else:
-            s.add_project(projectCounter(projectId,count))         
+            s.add_project(projectCounter(projectID,count))         
         scientificName = thisscientificName    
         firsttime = False    
 
@@ -290,7 +290,7 @@ def json_tuple_writer_scientificName_listing(group,name,df):
     for sciName in scientificNameList:                
         jsonstr += ("\t{\"scientificName\" : \"" + sciName.name + "\" , \"associatedProjects\" : [" )
         for project in sciName.projects:
-            jsonstr += ("{\"projectId\" : \"" + project.projectId + "\" , \"count\" : " + project.count  + "},")
+            jsonstr += ("{\"projectID\" : \"" + project.projectID + "\" , \"count\" : " + project.count  + "},")
         jsonstr = (jsonstr.rstrip(','))        
         jsonstr += ("]},\n")
     jsonstr = (jsonstr.rstrip(',\n'))        
@@ -336,14 +336,14 @@ def project_table_builder():
         # filter for just projects matching the teamID  
         if (str(projectConfigurationID) == str(futres_team_id)):     
             jsonstr += "\n\t{"           
-            projectId =  str(project["projectId"])
+            projectID =  str(project["projectID"])
             projectTitle = str(project["projectTitle"])
             principalInvestigator  = str(project["principalInvestigator"])
             principalInvestigatorAffiliation = str(project['principalInvestigatorAffiliation'])
             public = str(project["public"])
             discoverable  = str(project["discoverable"])
             diagnosticsCount = project["entityStats"]["DiagnosticsCount"]
-            jsonstr += "\"projectId\" : \"" + projectId + "\", "
+            jsonstr += "\"projectID\" : \"" + projectID + "\", "
             jsonstr += "\"projectTitle\" : \"" + projectTitle + "\", "
             jsonstr += "\"principalInvestigator\" : \"" + principalInvestigator + "\", "
             jsonstr += "\"principalInvestigatorAffiliation\" : \"" + principalInvestigatorAffiliation + "\", "
@@ -364,7 +364,7 @@ def project_table_builder():
                 len += file_len('vertnet/'+file)
     
     jsonstr += "\n\t{"           
-    jsonstr += "\"projectId\" : \"Vertnet\", "
+    jsonstr += "\"projectID\" : \"Vertnet\", "
     jsonstr += "\"projectTitle\" : \"VertNet\", "
     jsonstr += "\"principalInvestigator\" : \"\", "
     jsonstr += "\"principalInvestigatorAffiliation\" : \"\", "
@@ -405,12 +405,12 @@ def group_data(df):
     group = df.groupby('measurementType')['measurementType'].size()
     json_writer(group,'measurementType','data/measurementType.json','measurementType')    
     
-    # scientificName by projectId
-    group = df.groupby(['projectId','scientificName']).size()
-    json_tuple_writer_scientificName_projectId(group,'projectId')
+    # scientificName by projectID
+    group = df.groupby(['projectID','scientificName']).size()
+    json_tuple_writer_scientificName_projectID(group,'projectID')
     
     # scientificName listing
-    group = df.groupby(['scientificName','projectId']).size()
+    group = df.groupby(['scientificName','projectID']).size()
     json_tuple_writer_scientificName_listing(group,'scientificName',df)
 
     # measurementType/scientificName
@@ -433,7 +433,7 @@ api.write("|filename|definition|\n")
 api.write("|----|---|\n")
 
 # global variables
-columns = ['observationID','materialSampleID','country','locality','yearCollected','samplingProtocol','basisOfRecord','scientificName','genus','specificEpithet','measurementMethod','measurementUnit','measurementType','measurementValue','lifeStage','individualID','sex','decimalLatitude','decimalLongitude','projectId']
+columns = ['observationID','materialSampleID','country','locality','yearCollected','samplingProtocol','basisOfRecord','scientificName','genus','specificEpithet','measurementMethod','measurementUnit','measurementType','measurementValue','lifeStage','individualID','sex','decimalLatitude','decimalLongitude','projectID']
 processed_csv_filename_zipped = 'data/futres_data_processed.csv.gz'
 pruned_csv_filename = 'data/futres_data_with_errors.csv'
 

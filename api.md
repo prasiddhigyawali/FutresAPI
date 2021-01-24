@@ -11,11 +11,11 @@ Futres API Documentation
 |data/yearCollected.json|counts grouped by yearCollected|
 |data/measurementUnit.json|counts grouped by measurementUnit|
 |data/measurementType.json|measurementType|
-|data/scientificName_projectId_277.json|unique scientificName count for project 277|
-|data/scientificName_projectId_278.json|unique scientificName count for project 278|
-|data/scientificName_projectId_279.json|unique scientificName count for project 279|
-|data/scientificName_projectId_282.json|unique scientificName count for project 282|
-|data/scientificName_projectId_294.json|unique scientificName count for project 294|
-|data/scientificName_projectId_314.json|unique scientificName count for project 314|
-|data/scientificName_projectId_Vertnet.json|unique scientificName count for project Vertnet|
+|data/scientificName_projectID_277.json|unique scientificName count for project 277|
+|data/scientificName_projectID_278.json|unique scientificName count for project 278|
+|data/scientificName_projectID_279.json|unique scientificName count for project 279|
+|data/scientificName_projectID_282.json|unique scientificName count for project 282|
+|data/scientificName_projectID_294.json|unique scientificName count for project 294|
+|data/scientificName_projectID_314.json|unique scientificName count for project 314|
+|data/scientificName_projectID_Vertnet.json|unique scientificName count for project Vertnet|
 |scientificName_listing.json|All scientific names and the projects that they appear in|
