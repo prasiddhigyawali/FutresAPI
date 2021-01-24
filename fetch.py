@@ -54,13 +54,13 @@ def fetch_geome_data():
         # filter for just projects matching the teamID
         if (str(projectConfigurationID) == str(futres_team_id)):
             
-            url="https://api.geome-db.org/records/Event/excel?networkId=1&q=_projects_:" + str(project["projectID"]) + "+_select_:%5BSample,Diagnostics%5D" + "&access_token="+access_token
+            url="https://api.geome-db.org/records/Event/excel?networkId=1&q=_projects_:" + str(project["projectId"]) + "+_select_:%5BSample,Diagnostics%5D" + "&access_token="+access_token
             r = requests.get(url)
             if (r.status_code == 204):
-                print ('no data found for project = ' + str(project["projectID"]))
+                print ('no data found for project = ' + str(project["projectId"]))
             else:
-                print("processing data for project = " + str(project["projectID"]))
-                temp_file = 'data/project_' + str(project["projectID"]) + ".xlsx"                                                
+                print("processing data for project = " + str(project["projectId"]))
+                temp_file = 'data/project_' + str(project["projectId"]) + ".xlsx"                                                
                 excel_file_url = json.loads(r.content)['url']   + "?access_token=" + access_token             
                 reqRet = urllib.request.urlretrieve(excel_file_url, temp_file)                
                                                                   
@@ -85,6 +85,7 @@ def process_data():
                 print ('processing ' + temp_file)
 
                 thisDF = pd.read_excel(temp_file,sheet_name='Samples', na_filter=False)                                                
+                thisDF = thisDF.rename(columns={'projectId': 'projectID'})
                 thisDF = thisDF.reindex(columns=columns)            
                 thisDF = thisDF.astype(str)
                 df = df.append(thisDF,sort=False)
@@ -336,14 +337,14 @@ def project_table_builder():
         # filter for just projects matching the teamID  
         if (str(projectConfigurationID) == str(futres_team_id)):     
             jsonstr += "\n\t{"           
-            projectID =  str(project["projectID"])
+            projectID =  str(project["projectId"])
             projectTitle = str(project["projectTitle"])
             principalInvestigator  = str(project["principalInvestigator"])
             principalInvestigatorAffiliation = str(project['principalInvestigatorAffiliation'])
             public = str(project["public"])
             discoverable  = str(project["discoverable"])
             diagnosticsCount = project["entityStats"]["DiagnosticsCount"]
-            jsonstr += "\"projectID\" : \"" + projectID + "\", "
+            jsonstr += "\"projectId\" : \"" + projectID + "\", "
             jsonstr += "\"projectTitle\" : \"" + projectTitle + "\", "
             jsonstr += "\"principalInvestigator\" : \"" + principalInvestigator + "\", "
             jsonstr += "\"principalInvestigatorAffiliation\" : \"" + principalInvestigatorAffiliation + "\", "
