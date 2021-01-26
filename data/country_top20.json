@@ -1,0 +1,22 @@
+[
+	{"country":"USA","value":1763084},
+	{"country":"Canada","value":126461},
+	{"country":"Mexico","value":67610},
+	{"country":"Unknown","value":30848},
+	{"country":"Mongolia","value":27852},
+	{"country":"Argentina","value":27718},
+	{"country":"Panama","value":26574},
+	{"country":"Russia","value":25778},
+	{"country":"Chile","value":12660},
+	{"country":"Bolivia","value":12070},
+	{"country":"Denmark","value":9796},
+	{"country":"Guatemala","value":8404},
+	{"country":"Costa Rica","value":7170},
+	{"country":"Peru","value":4856},
+	{"country":"China","value":3731},
+	{"country":"Indonesia","value":3685},
+	{"country":"Kenya","value":3648},
+	{"country":"Brazil","value":3635},
+	{"country":"Paraguay","value":3166},
+	{"country":"Botswana","value":3042}
+]
