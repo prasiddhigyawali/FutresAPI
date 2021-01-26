@@ -344,7 +344,7 @@ def project_table_builder():
             public = str(project["public"])
             discoverable  = str(project["discoverable"])
             diagnosticsCount = project["entityStats"]["DiagnosticsCount"]
-            jsonstr += "\"projectId\" : \"" + projectID + "\", "
+            jsonstr += "\"projectID\" : \"" + projectID + "\", "
             jsonstr += "\"projectTitle\" : \"" + projectTitle + "\", "
             jsonstr += "\"principalInvestigator\" : \"" + principalInvestigator + "\", "
             jsonstr += "\"principalInvestigatorAffiliation\" : \"" + principalInvestigatorAffiliation + "\", "
